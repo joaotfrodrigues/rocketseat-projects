@@ -1,0 +1,1 @@
+All the projects developed in the Rocketseat courses
