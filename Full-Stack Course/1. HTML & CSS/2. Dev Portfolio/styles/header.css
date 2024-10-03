@@ -1,0 +1,77 @@
+#hero {
+    height: 46.875rem;
+    background: url(../assets/backgrounds/Background_Intro.png) center/cover no-repeat;
+
+    display: grid;
+    margin-top: 7.5rem;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+
+        padding-inline: 1rem;
+    }
+
+    .container > img {
+        max-width: 7rem;
+    }
+
+    .container > div {
+        max-width: 42.5rem;
+        margin-top: 3.5rem;
+        text-align: center;
+
+        h1 {
+            font: var(--subtitle);
+            color: var(--gray-500);
+            margin: 0;
+
+            span {
+                color: var(--red);
+            }
+        }
+
+        h2 {
+            font: var(--title-lg);
+            color: var(--gray-600);
+            margin-block: 0.5rem 0;
+        }
+
+        p {
+            font: var(--text-sm);
+            color: var(--gray-400);
+            margin-block: 1.25rem 0;
+        }
+    }
+
+    ul {
+        margin-block: 5rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+
+            font: var(--text-md);
+            color: var(--gray-500);
+            background-color: var(--gray-300);
+
+            padding: .5rem 1rem;
+            border-radius: 999px;
+        }
+    }
+
+    & > a {
+        margin-top: 5.875rem;
+        display: inline-block;
+        text-align: center;
+    }
+}
