@@ -26,10 +26,13 @@
     --text-sm: normal .875rem/140% var(--maven-font-family);
 }
 
-body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     background: var(--gray-200);
 }
 
@@ -40,4 +43,23 @@ a {
 ul {
     padding: 0;
     list-style: none;
+}
+
+main {
+    section > header {
+        margin-bottom: 3.5rem;
+
+        h3 {
+            font: var(--subtitle);
+            color: var(--red);
+            text-align: center;
+        }
+
+        h2 {
+            font: var(--title-md);
+            color: var(--gray-600);
+            text-align: center;
+            margin-top: .5rem;
+        }
+    }
 }

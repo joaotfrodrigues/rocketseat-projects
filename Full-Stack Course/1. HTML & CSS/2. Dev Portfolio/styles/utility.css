@@ -2,3 +2,11 @@
     max-width: 65rem;
     margin-inline: auto;
 }
+
+.grid {
+    display: grid;
+}
+
+.gap-24 {
+    gap: 1.5rem;
+}
