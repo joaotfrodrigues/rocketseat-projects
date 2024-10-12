@@ -1,0 +1,20 @@
+@media screen and (max-width: 80rem){
+    #wrapper {
+        flex-direction: column;
+    }
+
+
+    aside {
+        border: 1.25rem solid var(--shape-background);
+        border-radius: 1.25rem 1.25rem 0 0;
+        border-bottom: none;
+
+        .aside__container > img {
+            max-height: 40rem;
+        }
+    }
+
+    main {
+        border-radius: 0 0 1.25rem 1.25rem;
+    }
+}

@@ -1,0 +1,16 @@
+main {
+    flex: 0 1 51.25rem;
+
+    border: 1.25rem solid var(--shape-background);
+    border-radius: 0 1.25rem 1.25rem 0;
+
+    background: var(--shape-background);
+
+    & > .main__container {
+        height: 100%;
+        background: var(--shape-body);
+
+        border-radius: .75rem;
+        padding-block: 5rem;
+    }
+}
