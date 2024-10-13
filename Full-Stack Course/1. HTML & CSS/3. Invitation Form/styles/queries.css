@@ -16,5 +16,9 @@
 
     main {
         border-radius: 0 0 1.25rem 1.25rem;
+
+        & > .main__container {
+            padding: 2.5rem;
+        }
     }
 }

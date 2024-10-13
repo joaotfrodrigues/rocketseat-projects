@@ -49,6 +49,8 @@ body {
     background: #1E1E1E;
     display: flex;
     justify-content: center;
+
+    font: var(--body-md);
 }
 
 #wrapper {

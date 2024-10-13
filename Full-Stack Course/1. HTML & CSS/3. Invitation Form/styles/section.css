@@ -1,0 +1,46 @@
+fieldset {
+    &>section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+
+        &>.full {
+            grid-column: span 2;
+        }
+
+        &>.input-wrapper {
+            display: grid;
+            gap: .75rem;
+
+            &>label {
+                font: var(--body-sm);
+                color: var(--text-body);
+            }
+
+            &>input,
+            &>textarea {
+                padding: .8125rem 1rem;
+
+                color: var(--input-placeholder);
+                background-color: var(--input-base);
+
+                border: 1px solid var(--input-stroke);
+                border-radius: .5rem;
+
+                outline: none;
+                resize: none;
+            }
+
+            &>textarea {
+                height: 8.5rem;
+            }
+
+            &>input:hover,
+            &>textarea:hover,
+            &>input:focus,
+            &>textarea:focus {
+                border-color: var(--brand-light);
+            }
+        }
+    }
+}

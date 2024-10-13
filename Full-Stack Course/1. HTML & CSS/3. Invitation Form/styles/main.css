@@ -11,6 +11,26 @@ main {
         background: var(--shape-body);
 
         border-radius: .75rem;
-        padding-block: 5rem;
+        padding: 5rem 8.125rem;
+
+        & > h2 {
+            font: var(--heading-md);
+            color: var(--text-heading);
+            margin-bottom: 2.5rem;
+        }
+
+        & > fieldset {
+            border: none;
+
+            & > legend {
+                display: flex;
+                gap: .75rem;
+                
+                font: var(--heading-sm);
+                color: var(--text-heading);
+
+                margin-bottom: 1.5rem;
+            }
+        }
     }
 }
