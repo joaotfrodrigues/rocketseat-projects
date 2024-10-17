@@ -33,11 +33,8 @@
             cursor: pointer;
         }
 
-        & > input {
-            display: none;
-        }
-
-        &:has(:checked) label {
+        &:has(:checked) label,
+        &:focus-within label {
             background: var(--shape-button);
 
             font-weight: 600;
@@ -54,5 +51,65 @@
 
     & > .switch-wrapper:last-child {
         padding-left: .125rem;
+    }
+}
+
+.input-switch-2 {
+    label {
+        display: block;
+
+        width: 4rem;
+        height: 2rem;
+
+        border-radius: 999px;
+        border: 1px solid var(--input-stroke);
+
+        background: var(--input-base);
+
+        position: relative;
+        cursor: pointer;
+    }
+
+    label::before {
+        content: "";
+
+        position: absolute;
+        left: .25rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 1.5rem;
+        height: 1.5rem;
+
+        border-radius: 50%;
+
+        background: var(--input-stroke);
+
+        transition: .35s ease left;
+    }
+
+    label::after {
+        content: "Escuro";
+
+        position: absolute;
+        left: 4.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        font: var(--body-sm);
+        color: var(--text-heading);
+    }
+
+    &:has(:checked) label::after {
+        content: "Claro";
+    }
+
+    &:has(:checked) label {
+        background: var(--brand-light);
+    }
+
+    &:has(:checked) label::before {
+        left: calc(100% - 1.75rem);
+        background: var(--text-heading);
     }
 }

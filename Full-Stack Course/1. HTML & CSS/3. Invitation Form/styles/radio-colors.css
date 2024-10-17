@@ -1,0 +1,43 @@
+label[for="color-brand-light"] {
+    background-color: var(--brand-light);
+}
+
+label[for="color-navy"] {
+    background-color: var(--navy);
+}
+
+label[for="color-purple"] {
+    background-color: var(--purple);
+}
+
+label[for="color-fuschia"] {
+    background-color: var(--fuschia);
+}
+
+label[for="color-pink"] {
+    background-color: var(--pink);
+}
+
+label[for="color-danger"] {
+    background-color: var(--danger);
+}
+
+label[for="color-orange"] {
+    background-color: var(--orange);
+}
+
+label[for="color-yellow"] {
+    background-color: var(--yellow);
+}
+
+label[for="color-lime"] {
+    background-color: var(--lime);
+}
+
+label[for="color-green"] {
+    background-color: var(--green);
+}
+
+label[for="color-cyan"] {
+    background-color: var(--cyan);
+}

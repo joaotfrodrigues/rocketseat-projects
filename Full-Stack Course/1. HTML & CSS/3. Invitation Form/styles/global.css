@@ -58,3 +58,35 @@ body {
     margin: 5rem;
     display: flex;
 }
+
+.radio-hidden {
+    height: 0;
+    width: 0;
+    position: absolute;
+    appearance: none;
+}
+
+input {
+    &:invalid {
+        border-color: var(--danger);
+    }
+
+    &[required] + .error {
+        display: flex;
+    }
+
+    &:valid + .error {
+        display: none;
+    }
+}
+
+.error {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    span {
+        font: var(--body-xs);
+        color: var(--danger);
+    }
+}
