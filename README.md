@@ -14,4 +14,4 @@ All the projects developed in the Rocketseat courses
 
 - Invitation Form - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/3.%20Invitation%20Form/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/3.%20Invitation%20Form/)
 
-- Travelgram - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/3.%20Invitation%20Form/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/4.%Travelgram/)
+- Travelgram - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/4.%20Travelgram/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/4.%20Travelgram/)
