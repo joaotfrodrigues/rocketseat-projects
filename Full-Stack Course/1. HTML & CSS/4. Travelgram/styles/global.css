@@ -1,0 +1,55 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+:root {
+    --brand-color: #EF5F4C;
+
+    --background-color: #FFFFFF;
+    --surface-color: #F5F5F5;
+    --skeleton-color: #D9D9D9;
+    --shape-transparency: #8f8f8f;
+
+    --text-color-primary: #313131;
+    --text-color-secondary: #6C6C6C;
+
+    --font-family: "Poppins", sans-serif;
+    --heading1: 700 2rem/125% var(--font-family);
+    --paragraph: 400 1rem/150% var(--font-family);
+    --paragraph-md: 400 .875rem/170% var(--font-family);
+    --paragraph-sm: 400 .75rem/170% var(--font-family);
+}
+
+body {
+    font: var(--paragraph-md);
+    color: var(--text-color-secondary);
+
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    display: inline-block;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul[role="list"] {
+    list-style: none;
+}

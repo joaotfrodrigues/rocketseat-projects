@@ -1,0 +1,46 @@
+#hero {
+    background: var(--surface-color);
+
+    & .primary_navigation {
+        padding-block: 1.5rem;
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        & ul {
+            & li:first-child a,
+            & li:last-child a {
+                display: block;
+                font: var(--paragraph);
+            }
+
+            & li:not(:last-child) a {
+                padding: .25rem;
+            }
+
+            & li:first-child a {
+                background: url(../assets/icons/MagnifyingGlass.svg) no-repeat center/contain;
+            }
+
+            & li:last-child a {
+                background: url(../assets/icons/ProfilePic.svg) no-repeat center/contain;
+            }
+
+            & li:first-child:hover a {
+                background: url(../assets/icons/MagnifyingGlassHover.svg) no-repeat center/contain;
+            }
+
+            & li:not(:first-child):not(:last-child):hover a {
+                color: var(--brand-color);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media (width < 31.25rem) {
+        .primary_navigation {
+            padding-block: 1rem;
+        }
+    }
+}
