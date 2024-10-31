@@ -1,7 +1,5 @@
 All the projects developed in the Rocketseat courses, as an extra (no solution provided). A figma file for each project was given.
 
-(All projects are in Portuguese)
-
 # Full Stack Course Projects
 
 ## Live Preview
