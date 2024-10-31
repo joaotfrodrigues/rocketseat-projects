@@ -68,6 +68,10 @@
         .profile .about {
             flex-direction: column;
             gap: 1rem;
+
+            & > div > h1 {
+                font-size: 1.5rem;
+            }
         }
     }
 }
