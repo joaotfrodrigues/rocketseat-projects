@@ -3,11 +3,7 @@
 
     & .primary_navigation {
         padding-block: 1.5rem;
-    
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    
+
         & ul {
             & li:first-child a,
             & li:last-child a {
@@ -19,28 +15,59 @@
                 padding: .25rem;
             }
 
-            & li:first-child a {
-                background: url(../assets/icons/MagnifyingGlass.svg) no-repeat center/contain;
+            & li:first-child:hover a svg path,
+            & li:first-child:focus-within a svg path {
+                fill: #EF5F4C;
             }
 
-            & li:last-child a {
-                background: url(../assets/icons/ProfilePic.svg) no-repeat center/contain;
-            }
-
-            & li:first-child:hover a {
-                background: url(../assets/icons/MagnifyingGlassHover.svg) no-repeat center/contain;
-            }
-
-            & li:not(:first-child):not(:last-child):hover a {
+            & li:not(:first-child):not(:last-child):hover a,
+            & li:not(:first-child):not(:last-child):focus-within a {
                 color: var(--brand-color);
                 text-decoration: underline;
             }
         }
     }
 
-    @media (width < 31.25rem) {
+    & .profile {
+        padding-block: 2rem;
+
+        & .about {
+            max-width: 37rem;
+
+            gap: 2rem;
+
+            & > img {
+                width: 11rem;
+                height: 11rem;
+            }
+
+            & > div {
+                & h1 {
+                    font: var(--heading1);
+                    color: var(--text-color-primary);
+
+                    margin-bottom: .5rem;
+                }
+            }
+        }
+
+        & .stats {
+            width: 17.5rem;
+
+            & li {
+                gap: .5rem;
+            }
+        }
+    }
+
+    @media (width < 40rem) {
         .primary_navigation {
             padding-block: 1rem;
+        }
+
+        .profile .about {
+            flex-direction: column;
+            gap: 1rem;
         }
     }
 }

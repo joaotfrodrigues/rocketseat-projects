@@ -15,8 +15,28 @@
     justify-content: center;
 }
 
+.justify-between {
+    justify-content: space-between;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.grid {
+    display: grid;
+}
+
 .gap-1 {
     gap: 1rem;
+}
+
+.gap-2 {
+    gap: 2rem;
 }
 
 .px-md {
@@ -34,7 +54,7 @@
 }
 
 /* mobile */
-@media (width < 31.25rem) {
+@media (width < 40rem) {
     .desktop-only {
         display: none;
     }

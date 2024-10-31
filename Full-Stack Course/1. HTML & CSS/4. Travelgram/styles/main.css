@@ -1,0 +1,28 @@
+main {
+    padding-block: 1.5rem;
+
+    grid-template-columns: repeat(auto-fit, minmax(17.875rem, 1fr));
+    gap: 1.5rem;
+}
+
+footer {
+    padding-block: 1.5rem;
+
+    & a:hover,
+    & a:focus-within {
+        color: var(--brand-color);
+        text-decoration: underline;
+    }
+}
+
+@media (width < 40rem) {
+    main {
+        padding-block: 1rem;
+        gap: 1rem;
+    }
+
+    footer.container {
+        padding-block: 1rem;
+        justify-content: center;
+    }
+}
