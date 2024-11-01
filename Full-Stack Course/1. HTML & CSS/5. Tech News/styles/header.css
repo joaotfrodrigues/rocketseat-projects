@@ -13,7 +13,7 @@ header {
         & ul {
             padding-block: .875rem;
 
-            overflow-x: scroll;
+            overflow-x: auto;
             white-space: nowrap;
 
             font: var(--span);
