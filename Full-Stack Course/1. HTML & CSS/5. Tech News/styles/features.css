@@ -1,0 +1,82 @@
+#featured {
+    & .card:nth-child(1) {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+
+    & .card:nth-child(1) {
+        & figcaption {
+            padding: 1.5rem;
+
+            & h2 {
+                font: var(--heading1);
+                color: var(--text-color-primary);
+            }
+        }
+    }
+
+    & .card:not(:nth-child(1)) {
+        & figcaption {
+            padding: .75rem;
+
+            & h2 {
+                font: var(--heading3);
+                color: var(--text-color-primary);
+            }
+        }
+    }
+
+    & .card {
+        position: relative;
+
+        & img {
+            height: 100%;
+            width: 100%;
+            border-radius: .25rem;
+        }
+
+        & figcaption {
+            position: absolute;
+            bottom: 0;
+            z-index: 2;
+        }
+
+        &::before {
+            content: "";
+
+            width: 100%;
+            height: 50%;
+
+            position: absolute;
+            top: 50%;
+
+            background: linear-gradient(180deg,
+                    transparent 0%,
+                    #020617 100%);
+
+            border-radius: .25rem;
+        }
+    }
+}
+
+@media (width < 70rem) {
+    #featured .card:nth-child(1) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+}
+
+@media (width < 40rem) {
+    #featured {
+        & .card:nth-child(1) {
+            grid-column: auto;
+            grid-row: auto;
+        }
+
+        & .card:nth-child(1) {
+            & figcaption {
+                padding: 1.5rem;
+            }
+        }
+    }
+}

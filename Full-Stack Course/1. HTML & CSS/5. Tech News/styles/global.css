@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+:root {
+    --brand-color-light: #60A5FA;
+    --brand-color-dark: #1D4ED8;
+
+    --bg-color: #0F172A;
+    --stroke-color: #1E293B;
+
+    --text-color-primary: #F1F5F;
+    --text-color-secondary: #CBD5E1;
+
+    --font-family: "Archivo", serif;
+    --heading1: 800 1.5rem/135% var(--font-family);
+    --heading2: 800 1rem/140% var(--font-family);
+    --heading3: 800 .875rem/140% var(--font-family);
+    --span: 600 .875rem/145% var(--font-family);
+    --paragraph: 400 .875rem/160% var(--font-family);
+}
+
+body {
+    font: var(--paragraph);
+    color: var(--text-color-secondary);
+    background-color: var(--bg-color);
+
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul[role="list"] {
+    list-style: none;
+}
+
+.content_tag {
+    justify-self: start;
+    padding: .25rem .5rem;
+
+    background-color: var(--brand-color-dark);
+    border-radius: .25rem;
+
+    font: 500 .625rem/.75rem var(--font-family);
+    color: var(--text-color-primary);
+
+    text-transform: uppercase;
+}

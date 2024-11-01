@@ -1,0 +1,36 @@
+main {
+    padding-block: 2.5rem 5rem;
+
+    gap: 5rem;
+}
+
+.section_heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: .75rem;
+    border-top: 1px solid var(--stroke-color);
+
+    & a {
+        display: flex;
+        align-items: center;
+        gap: .25rem;
+    }
+
+    & a:hover {
+        color: #60A5FA;
+    }
+
+    & a:hover svg path {
+        fill: #60A5FA;
+    }
+}
+
+@media (width < 40rem) {
+    main {
+        padding-block: 1rem 2.5rem;
+
+        gap: 2rem;
+    }
+}

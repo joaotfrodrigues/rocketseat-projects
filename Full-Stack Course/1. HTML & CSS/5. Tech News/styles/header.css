@@ -1,0 +1,45 @@
+header {
+    & .navigation_primary ul {
+        padding-block: 1.5rem;
+
+        font: var(--heading2);
+        font-weight: 700;
+        color: var(--text-color-primary);
+    }
+
+    & .navigation_secondary  {
+        border-block: 1px solid var(--stroke-color);
+
+        & ul {
+            padding-block: .875rem;
+
+            overflow-x: scroll;
+            white-space: nowrap;
+
+            font: var(--span);
+
+            & a:hover {
+                color: var(--brand-color-light);
+            }
+
+            @media (width < 56rem) {
+                justify-content: initial;
+                gap: 2rem;
+            }
+        }
+    }
+}
+
+@media (width < 40rem) {
+    header {
+        & .navigation_primary {
+            & ul {
+                padding-block: 1rem;
+
+                .logo {
+                    max-width: 6.25rem;
+                }
+            }
+        }
+    }
+}

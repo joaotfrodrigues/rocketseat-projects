@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech News</title>
+
+    <link href="styles/global.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/utility.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+    <link href="styles/header.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/main.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/features.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/weekly_top.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/news.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="navigation_primary container">
+            <ul role="list" class="flex align-center justify-between">
+                <li>
+                    <a href="#" class="flex align-center gap-05" aria-label="Menu">
+                        <img src="assets/icons/List.svg" alt="Icon burger menu">
+                        <span class="desktop-only">Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex align-center" aria-label="Logo">
+                        <img class="logo" src="assets/Logo.svg" alt="Tech News logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex align-center gap-05" aria-label="Buscar">
+                        <span class="desktop-only">Buscar</span>
+                        <img src="assets/icons/MagnifyingGlass.svg" alt="Icon lupa de pesquisa">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <nav class="navigation_secondary">
+            <ul role="list" class="container flex align-center justify-between">
+                <li>
+                    <a href="#" aria-label="Inteligência Artificial">Inteligência Artificial</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Blockchain">Blockchain</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Hologramas">Hologramas</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Internet">Internet</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Vestíveis">Vestíveis</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Realidade Aumentada">Realidade Aumentada</a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Realidade Virtual">Realidade Virtual</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid">
+        <section id="featured" class="container grid grid-4-columns gap-1">
+            <figure class="card">
+                <img src="assets/images/Image 01.png" alt="Imagem 1">
+
+                <figcaption class="grid gap-05">
+                    <span class="content_tag">Robótica</span>
+                    <h2 class="max-lines max-3">Robôs domésticos começam a ser adotados para tarefas diárias, prometendo
+                        mais conforto e eficiência nas residências.</h2>
+                </figcaption>
+            </figure>
+            <figure class="card">
+                <img src="assets/images/Image 02.png" alt="Imagem 2">
+
+                <figcaption class="grid gap-05">
+                    <span class="content_tag">Hologramas</span>
+                    <h2 class="max-lines max-3">Novo Smartphone Projetor 3D chega ao mercado, transformando a forma como
+                        vemos nossas telas!
+                    </h2>
+                </figcaption>
+            </figure>
+            <figure class="card">
+                <img src="assets/images/Image 03.png" alt="Imagem 3">
+
+                <figcaption class="grid gap-05">
+                    <span class="content_tag">Internet</span>
+                    <h2 class="max-lines max-3">Tecnologia 6G chega às metrópoles brasileiras, prometendo revolucionar a
+                        forma como vivemos e nos comunicamos.</h2>
+                </figcaption>
+            </figure>
+            <figure class="card">
+                <img src="assets/images/Image 04.png" alt="Imagem 4">
+
+                <figcaption class="grid gap-05">
+                    <span class="content_tag">Vestíveis</span>
+                    <h2 class="max-lines max-3">Empresa lança relógio inteligente capaz de monitorar a saúde mental,
+                        oferecendo insights valiosos para o bem-estar pessoal.</h2>
+                </figcaption>
+            </figure>
+            <figure class="card">
+                <img src="assets/images/Image 05.png" alt="Imagem 5">
+
+                <figcaption class="grid gap-05">
+                    <span class="content_tag">Realidade Virtual</span>
+                    <h2 class="max-lines max-3">Escolas adotam a tecnologia VR para proporcionar experiências imersivas,
+                        transformando a aprendizagem tradicional.</h2>
+                </figcaption>
+            </figure>
+        </section>
+
+        <section id="weekly_top" class="container">
+            <div class="section_heading">
+                <p>Mais lidas da semana</p>
+                <a href="#">
+                    Ver tudo
+                    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.5306 8.53061L10.0306 13.0306C9.88973 13.1715 9.69863 13.2507 9.49938 13.2507C9.30012 13.2507 9.10902 13.1715 8.96813 13.0306C8.82723 12.8897 8.74807 12.6986 8.74807 12.4994C8.74807 12.3001 8.82723 12.109 8.96813 11.9681L12.1875 8.74999H3C2.80109 8.74999 2.61032 8.67097 2.46967 8.53032C2.32902 8.38967 2.25 8.1989 2.25 7.99999C2.25 7.80108 2.32902 7.61031 2.46967 7.46966C2.61032 7.329 2.80109 7.24999 3 7.24999H12.1875L8.96937 4.02999C8.82848 3.88909 8.74932 3.69799 8.74932 3.49874C8.74932 3.29948 8.82848 3.10838 8.96937 2.96749C9.11027 2.82659 9.30137 2.74744 9.50062 2.74744C9.69988 2.74744 9.89098 2.82659 10.0319 2.96749L14.5319 7.46749C14.6018 7.53726 14.6573 7.62016 14.6951 7.71142C14.7329 7.80269 14.7523 7.90052 14.7522 7.99931C14.752 8.09809 14.7324 8.19588 14.6944 8.28706C14.6564 8.37824 14.6007 8.46101 14.5306 8.53061Z"
+                            fill="#CBD5E1" />
+                    </svg>
+                </a>
+            </div>
+            <div class="grid grid-4-columns gap-1">
+                <figure>
+                    <img src="assets/images/Image 06.png" alt="Imagem 6">
+                    <figcaption>
+                        <span class="content_tag">Veículos</span>
+                        <h2 class="max-lines max-3">Protótipo de veículo voador é apresentado, marcando o início da era
+                            dos transportes aéreos
+                            pessoais.</h2>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/images/Image 07.png" alt="Imagem 7">
+                    <figcaption>
+                        <span class="content_tag">Hologramas</span>
+                        <h2 class="max-lines max-3">Plataforma de videoconferência apresenta nova função de hologramas,
+                            tornando as chamadas
+                            virtuais mais realistas e envolventes.
+                        </h2>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/images/Image 08.png" alt="Imagem 8">
+                    <figcaption>
+                        <span class="content_tag">Realidade virtual</span>
+                        <h2 class="max-lines max-3">Nova geração de consoles de videogame é lançada, trazendo gráficos
+                            ultra-realistas e
+                            experiências de jogo totalmente envolventes.</h2>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/images/Image 09.png" alt="Imagem 9">
+                    <figcaption>
+                        <span class="content_tag">Internet</span>
+                        <h2 class="max-lines max-3">Projeto busca oferecer internet de alta velocidade em áreas remotas
+                            através de satélites.
+                        </h2>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="news" class="container grid gap-2">
+            <div class="highlights">
+                <div class="section_heading">
+                    <p>Destaques de Inteligência Artificial</p>
+                    <a href="#">
+                        Ver tudo
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.5306 8.53061L10.0306 13.0306C9.88973 13.1715 9.69863 13.2507 9.49938 13.2507C9.30012 13.2507 9.10902 13.1715 8.96813 13.0306C8.82723 12.8897 8.74807 12.6986 8.74807 12.4994C8.74807 12.3001 8.82723 12.109 8.96813 11.9681L12.1875 8.74999H3C2.80109 8.74999 2.61032 8.67097 2.46967 8.53032C2.32902 8.38967 2.25 8.1989 2.25 7.99999C2.25 7.80108 2.32902 7.61031 2.46967 7.46966C2.61032 7.329 2.80109 7.24999 3 7.24999H12.1875L8.96937 4.02999C8.82848 3.88909 8.74932 3.69799 8.74932 3.49874C8.74932 3.29948 8.82848 3.10838 8.96937 2.96749C9.11027 2.82659 9.30137 2.74744 9.50062 2.74744C9.69988 2.74744 9.89098 2.82659 10.0319 2.96749L14.5319 7.46749C14.6018 7.53726 14.6573 7.62016 14.6951 7.71142C14.7329 7.80269 14.7523 7.90052 14.7522 7.99931C14.752 8.09809 14.7324 8.19588 14.6944 8.28706C14.6564 8.37824 14.6007 8.46101 14.5306 8.53061Z"
+                                fill="#CBD5E1" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="articles grid gap-2">
+                    <article class="grid gap-1">
+                        <div>
+                            <span class="content_tag">Inteligência Artificial</span>
+                            <h2>Empresa surpreende o mundo ao anunciar um algoritmo capaz de prever eventos futuros com
+                                alta precisão.</h2>
+                            <p class="max-lines max-4">Em um avanço surpreendente da inteligência artificial, uma
+                                empresa anuncia o
+                                desenvolvimento de um algoritmo capaz de prever eventos futuros com notável precisão.
+                                Descubra como essa tecnologia está desafiando as fronteiras da previsão e quais são as
+                                implicações para diversas áreas, desde finanças até planejamento estratégico.</p>
+                        </div>
+                        <div>
+                            <img src="assets/images/Image 10.png" alt="Imagem 10">
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <span class="content_tag">Inteligência Artificial</span>
+                            <h2>Dispositivo portátil promete traduzir instantaneamente diferentes idiomas, facilitando a
+                                comunicação global.</h2>
+                            <p class="max-lines max-4">Em um mundo cada vez mais conectado, a comunicação sem fronteiras
+                                é essencial. Nesse contexto, um dispositivo portátil surge como um verdadeiro herói
+                                linguístico, prometendo quebrar as barreiras idiomáticas instantaneamente. Imagine poder
+                                se comunicar fluentemente em qualquer lugar do mundo, independentemente do idioma local.
+                                Este dispositivo não é mais uma visão futurista, mas uma realidade impressionante que
+                                está transformando a forma como nos conectamos globalmente. Nesta reportagem,
+                                mergulharemos nas funcionalidades deste dispositivo revolucionário e como ele está
+                                moldando uma nova era de compreensão global.</p>
+                        </div>
+                        <div>
+                            <img src="assets/images/Image 11.png" alt="Imagem 11">
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <span class="content_tag">Inteligência Artificial</span>
+                            <h2>Criados para auxiliar idosos, robôs de companhia ganham popularidade, oferecendo suporte
+                                emocional e físico aos usuários.</h2>
+                            <p class="max-lines max-4">A tecnologia não só avança, mas também busca tornar a vida mais
+                                significativa para todas as gerações. No cenário atual, os robôs sociais, projetados
+                                especialmente para oferecer apoio e companhia aos idosos, estão ganhando destaque. Mais
+                                do que meros assistentes, esses robôs são programados para fornecer suporte emocional e
+                                físico, preenchendo lacunas nas necessidades de cuidado. Nesta matéria, exploraremos
+                                como esses companheiros tecnológicos estão impactando positivamente a qualidade de vida
+                                da terceira idade e proporcionando uma nova perspectiva sobre o envelhecimento.</p>
+                        </div>
+                        <div>
+                            <img src="assets/images/Image 12.png" alt="Imagem 12">
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <span class="content_tag">Inteligência Artificial</span>
+                            <h2>Aplicativo utiliza inteligência artificial para ajudar usuários a manterem o foco e
+                                aumentarem a produtividade no dia a dia.
+                            </h2>
+                            <p class="max-lines max-4">No turbilhão da vida moderna, onde distrações são abundantes, um
+                                aplicativo inovador surge como um aliado indispensável para quem busca maior
+                                concentração e eficiência no cotidiano. Utilizando avançados algoritmos de inteligência
+                                artificial, este aplicativo promete mais do que simplesmente gerenciar tarefas; ele está
+                                programado para compreender os padrões de trabalho de cada usuário, oferecendo sugestões
+                                personalizadas para otimizar o tempo e maximizar a produtividade. Nesta matéria,
+                                exploraremos como essa ferramenta tecnológica está se tornando a chave para manter o
+                                foco em um mundo cada vez mais cheio de distrações, transformando a maneira como
+                                encaramos nossas responsabilidades diárias.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="assets/images/Image 13.png" alt="Imagem 13">
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="more_highlights">
+                <div class="ad">
+                    <img src="assets/images/Ads.png" alt="Anúncio rocketseat">
+                    <img src="assets/icons/X.svg" alt="Fechar anúncio">
+                </div>
+                <div class="section_heading">
+                    <p>Viu isso aqui?</p>
+                    <a href="#">
+                        Ver tudo
+                        <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14.5306 8.53061L10.0306 13.0306C9.88973 13.1715 9.69863 13.2507 9.49938 13.2507C9.30012 13.2507 9.10902 13.1715 8.96813 13.0306C8.82723 12.8897 8.74807 12.6986 8.74807 12.4994C8.74807 12.3001 8.82723 12.109 8.96813 11.9681L12.1875 8.74999H3C2.80109 8.74999 2.61032 8.67097 2.46967 8.53032C2.32902 8.38967 2.25 8.1989 2.25 7.99999C2.25 7.80108 2.32902 7.61031 2.46967 7.46966C2.61032 7.329 2.80109 7.24999 3 7.24999H12.1875L8.96937 4.02999C8.82848 3.88909 8.74932 3.69799 8.74932 3.49874C8.74932 3.29948 8.82848 3.10838 8.96937 2.96749C9.11027 2.82659 9.30137 2.74744 9.50062 2.74744C9.69988 2.74744 9.89098 2.82659 10.0319 2.96749L14.5319 7.46749C14.6018 7.53726 14.6573 7.62016 14.6951 7.71142C14.7329 7.80269 14.7523 7.90052 14.7522 7.99931C14.752 8.09809 14.7324 8.19588 14.6944 8.28706C14.6564 8.37824 14.6007 8.46101 14.5306 8.53061Z"
+                                fill="#CBD5E1" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="grid gap-2">
+                    <article class="grid gap-1">
+                        <div>
+                            <img src="assets/images/Image 14.png" alt="Imagem 14">
+                        </div>
+                        <div>
+                            <span class="content_tag">Software</span>
+                            <h2 class="max-lines max-2">Aplicativo de monitoramento ambiental ganha destaque,
+                                incentivando
+                                práticas ecológicas e
+                                promovendo a conscientização.</h2>
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <img src="assets/images/Image 15.png" alt="Imagem 15">
+                        </div>
+                        <div>
+                            <span class="content_tag">Realidade Virtual</span>
+                            <h2 class="max-lines max-2">Óculos de realidade virtual com feedback tátil proporcionam uma
+                                experiência sensorial completa, imergindo usuários em ambientes digitais.</h2>
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <img src="assets/images/Image 16.png" alt="Imagem 16">
+                        </div>
+                        <div>
+                            <span class="content_tag">Criptomoedas</span>
+                            <h2 class="max-lines max-2">Surge uma nova moeda digital baseada em tecnologias
+                                sustentáveis,
+                                buscando minimizar o impacto ambiental associado à mineração de criptomoedas.</h2>
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <img src="assets/images/Image 17.png" alt="Imagem 17">
+                        </div>
+                        <div>
+                            <span class="content_tag">Drones</span>
+                            <h2 class="max-lines max-2">Empresas de e-commerce implementam frota de drones para entregas
+                                rápidas, transformando o cenário do comércio online.</h2>
+                        </div>
+                    </article>
+                    <article class="grid gap-1">
+                        <div>
+                            <img src="assets/images/Image 18.png" alt="Imagem 18">
+                        </div>
+                        <div>
+                            <span class="content_tag">Impressão 3d</span>
+                            <h2 class="max-lines max-2">Tecnologia inovadora permite a impressão 3D de órgãos humanos,
+                                revolucionando a medicina e a lista de espera por transplantes.</h2>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
