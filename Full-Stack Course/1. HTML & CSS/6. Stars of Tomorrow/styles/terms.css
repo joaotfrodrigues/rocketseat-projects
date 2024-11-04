@@ -11,11 +11,11 @@
             cursor: pointer;
 
             background: url(../assets/icons/square.svg) no-repeat center/contain;
+        }
 
-            &:hover,
-            &:focus-within {
-                background: url(../assets/icons/square-hover.svg) no-repeat center/contain;
-            }
+        & label:hover,
+        & input:focus-within {
+            background: url(../assets/icons/square-hover.svg) no-repeat center/contain;
         }
 
         &:has(:checked) label {
@@ -23,7 +23,9 @@
         }
 
         & input {
-            display: none;
+            all: unset;
+            position: absolute;
+            left: -9999rem;
         }
     }
 }
