@@ -1,0 +1,61 @@
+input[type="date"] {
+    position: relative;  
+    &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+    }
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 1.5rem;
+        height: 1.5rem;
+        
+        background: url(../assets/icons/calendar-03.svg) no-repeat center/contain;
+    }
+}
+
+select {
+    background: url(../assets/icons/arrow-down-01.svg) no-repeat calc(100% - 1rem);
+}
+
+textarea {
+    min-height: 7.5rem;
+    resize: none;
+}
+
+.dropzone {
+    border: 1px dashed var(--stroke-default);
+    border-radius: .5rem;
+
+    padding: 1.5rem 1rem;
+
+    position: relative;
+
+    place-items: center;
+
+    color: #A8A29E;
+
+    & p {
+        text-align: center;
+    }
+
+    &:hover,
+    &:focus-within {
+        border-width: 2px;
+        border-color: var(--stroke-highlight);
+        background-color: var(--surface-secondary);
+
+        & svg path {
+            stroke: var(--brand-light);
+        }
+
+        & p {
+            color: var(--text-tertiary);
+        }
+    }
+}

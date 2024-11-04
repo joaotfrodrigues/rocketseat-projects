@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrelas do Amanhã</title>
+
+    <link href="styles/global.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/utility.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/main.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/aside.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/fieldset.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/input.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="styles/terms.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="preload" as="style" onload="this.rel='stylesheet'">
+</head>
+
+<body class="grid">
+    <main>
+        <form action="" enctype="multipart/form-data" class="main-container padding-xl grid gap-3">
+            <div>
+                <a href="#" class="go-back flex align-center gap-05">
+                    <img src="assets/icons/arrow-left-02.svg" alt="Arrow left - Go back">
+                    Voltar
+                </a>
+                <h2>Formulário de matrícula</h2>
+                <p>Preencha os dados abaixo para matricular seu filho na escola de educação infantil Estrelas do Amanhã.
+                </p>
+            </div>
+            <fieldset class="grid">
+                <legend>Informações da criança</legend>
+                <div class="input-wrapper">
+                    <label for="name">Nome completo</label>
+                    <input type="text" name="name" id="name" placeholder="Nome completo">
+                </div>
+                <div class="input-wrapper">
+                    <label for="birthdate">Data de nascimento</label>
+                    <input type="date" name="birthdate" id="birthdate" lang="pt-PT">
+                </div>
+                <div class="input-wrapper">
+                    <label for="sex">Sexo</label>
+                    <select name="sex" id="sex">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+                <div class="input-wrapper">
+                    <label for="medic-informations">Informações médicas</label>
+                    <textarea name="medic-informations" id="medic-informations"
+                        placeholder="Informações médicas"></textarea>
+                </div>
+                <div class="input-wrapper">
+                    <label for="birth-cert">Certidão de nascimento</label>
+
+                    <div class="dropzone grid gap-05">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M34.9552 18.0221C34.97 18.022 34.985 18.022 35 18.022C39.9706 18.022 44 22.0588 44 27.0386C44 31.6796 40.5 35.5016 36 36M34.9552 18.0221C34.9848 17.6921 35 17.3579 35 17.0202C35 10.9339 30.0752 6 24 6C18.2465 6 13.5247 10.4253 13.0408 16.0638M34.9552 18.0221C34.7506 20.2952 33.8572 22.3692 32.4856 24.033M13.0408 16.0638C7.96796 16.5475 4 20.8278 4 26.0366C4 30.8834 7.43552 34.9264 12 35.8546M13.0408 16.0638C13.3565 16.0337 13.6765 16.0183 14 16.0183C16.2516 16.0183 18.3295 16.7639 20.001 18.022"
+                                stroke="#D6D3D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M24 26V42M24 26C22.5996 26 19.9831 29.9886 19 31M24 26C25.4004 26 28.017 29.9886 29 31"
+                                stroke="#D6D3D1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <input type="file" name="birth-cert" id="birth-cert">
+                        <p>Clique aqui para<br>selecionar arquivos</p>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="recidential-address grid">
+                <legend>Endereço residencial</legend>
+                <div class="input-wrapper">
+                    <label for="cep">CEP</label>
+                    <input type="text" name="cep" id="cep" placeholder="01234-567">
+                </div>
+                <div>
+                    <div class="grid input-wrapper">
+                        <label for="street">Rua</label>
+                        <input type="text" name="street" id="street" placeholder="Rua das Flores" disabled>
+                    </div>
+                    <div class="grid input-wrapper">
+                        <label for="port_number">Número</label>
+                        <input type="text" name="port_number" id="port_number" placeholder="123">
+                    </div>
+                    <div class="grid input-wrapper">
+                        <label for="city">Cidade</label>
+                        <input type="text" name="city" id="city" placeholder="São Paulo" disabled>
+                    </div>
+                    <div class="grid input-wrapper">
+                        <label for="state">Estado</label>
+                        <input type="text" name="state" id="state" placeholder="SP" disabled>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="grid">
+                <legend>Informações do responsável</legend>
+
+                <div class="input-wrapper">
+                    <label for="guardian">Nome do responsável</label>
+                    <input type="text" name="guardian" id="guardian" placeholder="Miguel Roberto Alves">
+                    <small>Principal responsável legal e contato de emergência</small>
+                </div>
+                <div class="input-wrapper">
+                    <label for="guardian-phone">Telefone</label>
+                    <input type="text" name="guardian-phone" id="guardian-phone" placeholder="(10) 9 8765-4321">
+                </div>
+                <div class="input-wrapper">
+                    <label for="guardian-email">E-mail</label>
+                    <input type="email" name="guardian-email" id="guardian-email" placeholder="E-mail" required>
+                    <div class="error flex align-center gap-05">
+                        <img src="assets/icons/alert-circle.svg" alt="Circulo de alerta">
+                        Insira um e-mail válido
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="grid options">
+                <legend>Opções de matrícula</legend>
+                <div class="grid gap-1">
+                    <label for="shift">Selecione o turno de estudo</label>
+                    <div class="grid justify-between gap-1">
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/sun-cloud-02.svg" alt="Manhã icon">
+                            <label for="morning">Manhã</label>
+                            <input type="radio" name="shift" id="morning" value="morning" checked>
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/sun-02.svg" alt="Tarde icon">
+                            <label for="afternoon">Tarde</label>
+                            <input type="radio" name="shift" id="afternoon" value="afternoon">
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-1">
+                    <label for="sport">Em qual esporte você gostaria de inscrever seu filho?</label>
+                    <div class="grid gap-1">
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/football.svg" alt="Futebol icon">
+                            <label for="football">Futebol</label>
+                            <input type="radio" name="sport" id="football" value="football" checked>
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/basketball-02.svg" alt="Basquete icon">
+                            <label for="basketball">Basquete</label>
+                            <input type="radio" name="sport" id="basketball" value="basketball">
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/swimming.svg" alt="Natação icon">
+                            <label for="swimming">Natação</label>
+                            <input type="radio" name="sport" id="swimming" value="swimming">
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/yoga-02.svg" alt="Yoga icon">
+                            <label for="yoga">Yoga</label>
+                            <input type="radio" name="sport" id="yoga" value="yoga">
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/volleyball.svg" alt="Volley icon">
+                            <label for="volley">Volley</label>
+                            <input type="radio" name="sport" id="volley" value="volley">
+                        </div>
+                        <div class="radio-wrapper">
+                            <img src="assets/icons/boxing-glove-01.svg" alt="Boxe icon">
+                            <label for="boxe">Boxe</label>
+                            <input type="radio" name="sport" id="boxe" value="boxe">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="terms flex">
+                <div>
+                    <label for="terms"></label>
+                    <input type="checkbox" name="terms" id="terms">
+                </div>
+                <p>Declaro que li e concordo com os <span class="text_highlight">Termos e Condições</span> e com a
+                    <span class="text_highlight">Política de Privacidade</span> da escola Estrela
+                    do Amanhã.
+                </p>
+            </div>
+            <div class="save flex">
+                <button type="reset" class="secondary">Salvar respostas</button>
+                <button type="submit" class="primary">Fazer matrícula</button>
+            </div>
+        </form>
+    </main>
+    <aside>
+        <div class="aside-container padding-xl">
+            <div class="grid gap-05">
+                <img src="assets/Logo.svg" alt="Estrelas do Amanhã logo">
+                <h1>Porque cada momento de <span class="text_highlight">aprendizado</span> conta</h1>
+                <p>Inscreva seu filho em nossa escola e veja-o florescer em um ambiente acolhedor, seguro e estimulante.
+                </p>
+            </div>
+            <img src="assets/images/Illustration.png" alt="Ilustração">
+        </div>
+    </aside>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+.terms {
+    gap: .75rem;
+
+    & > div {
+        & label {
+            display: block;
+
+            width: 1.5rem;
+            height: 1.5rem;
+
+            cursor: pointer;
+
+            background: url(../assets/icons/square.svg) no-repeat center/contain;
+
+            &:hover {
+                background: url(../assets/icons/square-hover.svg) no-repeat center/contain;
+            }
+        }
+
+        &:has(:checked) label {
+            background: url(../assets/icons/checkmark-square-01.svg) no-repeat center/contain;
+        }
+
+        & input {
+            display: none;
+        }
+    }
+}
+
+.save {
+    gap: 1rem;
+
+    justify-content: flex-end;
+
+    & button {
+        padding: .75rem 1.5rem;
+
+        border: 1px solid var(--text-highlight);
+        border-radius: .5rem;
+
+        font: 500 1rem/150% var(--font-family);
+
+        cursor: pointer;
+
+        &.primary {
+            border-color: var(--brand-dark);
+            background-color: var(--brand-dark);
+            color: #FFFFFF;
+        }
+
+        &.primary:hover,
+        &.primary:focus-within {
+            background-color: var(--brand-mid);
+            outline: none;
+        }
+
+        &.secondary {
+            background-color: #FFFFFF;
+            color: var(--text-highlight);
+        }
+
+        &.secondary:hover,
+        &.secondary:focus-within {
+            outline: 4px solid var(--surface-secondary);
+        }
+    }
+}
+
+@media (width < 60rem) {
+    .save {
+        flex-direction: column;
+    }
+}

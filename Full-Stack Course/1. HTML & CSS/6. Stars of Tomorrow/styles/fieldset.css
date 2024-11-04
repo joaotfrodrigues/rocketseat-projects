@@ -1,0 +1,160 @@
+fieldset {
+    --gap: 1.5rem;
+
+    gap: var(--gap);
+    border: none;
+
+    & legend {
+        margin-bottom: var(--gap);
+
+        font: var(--paragraph-semi);
+        color: var(--text-primary);
+    }
+
+    & .input-wrapper {
+        display: grid;
+        gap: .25rem;
+
+        & label {
+            font: var(--paragraph-sm);
+        }
+
+        & small {
+            font: var(--paragraph-sm);
+            color: #78716C;
+        }
+
+        & input,
+        & select,
+        & textarea {
+            appearance: none;
+
+            outline: 1px solid var(--stroke-default);
+            border: 2px solid transparent;
+            border-radius: .5rem;
+
+            font: var(----paragraph-md);
+            color: var(--text-primary);
+
+            padding: .75rem 1rem;
+        }
+
+        & input:hover:not(:disabled),
+        & input:focus-within,
+        & select:hover:not(:disabled),
+        & select:focus-within,
+        & textarea:hover:not(:disabled),
+        & textarea:focus-within {
+            border-color: var(--stroke-highlight);
+            outline: .25rem solid var(--surface-secondary);
+        }
+
+        & input[type="file"] {
+            position: absolute;
+            inset: 0;
+
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .error {
+            font: var(--paragraph-sm);
+            color: var(--semantic-error);
+        }
+
+        &:has(:valid) .error {
+            display: none;
+        }
+        
+        &:has(:invalid) input,
+        &:has(:invalid) input:hover {
+            border: 2px solid var(--semantic-error);
+            outline: none;
+        }
+    }
+
+    & .radio-wrapper {
+        position: relative;
+
+        display: grid;
+        place-items: center;
+        gap: .5rem;
+
+        padding: 2rem 1rem 1rem;
+
+        border: 1px solid var(--stroke-default);
+        border-radius: .5rem;
+
+        cursor: pointer;
+
+        & input {
+            all: unset;
+            position: absolute;
+            inset: 0;
+        }
+
+        &::before {
+            content: "";
+
+            width: 1.5rem;
+            height: 1.5rem;
+
+            position: absolute;
+            left: .5rem;
+            top: .5rem;
+
+            background: url(../assets/icons/circle.svg) no-repeat center/contain;
+        }
+
+        &:hover::before {
+            background: url(../assets/icons/circle-hover.svg) no-repeat center/contain;
+        }
+
+        &:has(:checked)::before {
+            background: url(../assets/icons/checkmark-circle-01.svg) no-repeat center/contain;
+        }
+
+        &:hover,
+        &:focus-within,
+        &:has(:checked) {
+            border: 2px solid var(--stroke-highlight);
+        }
+    }
+}
+
+.recidential-address > div:last-child {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem 1.25rem;
+}
+
+.input-wrapper:has(:disabled) {
+    & input {
+        background-color: var(--surface-disabled);
+        border-color: var(--surface-disabled);;
+    }
+}
+
+.options > div:first-of-type > div {
+    grid-template-columns: repeat(2, 16rem);
+}
+
+.options > div:last-of-type > div {
+    grid-template-columns: repeat(auto-fit, 7.5rem);
+}
+
+@media (width < 60rem) {
+    fieldset {
+        --gap: 1.25rem;
+    }
+
+    .recidential-address > div:last-child {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .options > div:first-of-type > div,
+    .options > div:last-of-type > div {
+        grid-template-columns: 1fr 1fr;
+    }
+}

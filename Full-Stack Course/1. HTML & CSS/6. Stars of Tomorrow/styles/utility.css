@@ -1,0 +1,55 @@
+.padding-xl {
+    padding: 4rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.grid {
+    display: grid;
+}
+
+.gap-05 {
+    gap: .5rem;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-15 {
+    gap: 1.5rem;
+}
+
+.gap-3 {
+    gap: 3rem;
+}
+
+.text_highlight {
+    color: var(--text-highlight);
+}
+
+@media (width < 60rem) {
+    .padding-xl {
+        padding: 1.5rem;
+    }
+
+    .main-container,
+    .aside-container {
+        max-width: 40rem !important;
+        margin-inline: auto;
+    }
+}
