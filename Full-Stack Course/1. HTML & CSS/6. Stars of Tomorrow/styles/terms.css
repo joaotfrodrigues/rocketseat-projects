@@ -12,7 +12,8 @@
 
             background: url(../assets/icons/square.svg) no-repeat center/contain;
 
-            &:hover {
+            &:hover,
+            &:focus-within {
                 background: url(../assets/icons/square-hover.svg) no-repeat center/contain;
             }
         }
