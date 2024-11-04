@@ -2,6 +2,8 @@
     gap: .75rem;
 
     & > div {
+        position: relative;
+
         & label {
             display: block;
 
@@ -13,10 +15,11 @@
             background: url(../assets/icons/square.svg) no-repeat center/contain;
         }
 
-        & label:hover,
-        & input:focus-within {
+        &:hover label,
+        &:focus-within label {
             background: url(../assets/icons/square-hover.svg) no-repeat center/contain;
         }
+
 
         &:has(:checked) label {
             background: url(../assets/icons/checkmark-square-01.svg) no-repeat center/contain;
@@ -24,8 +27,8 @@
 
         & input {
             all: unset;
-            position: absolute;
-            left: -9999rem;
+            position: relative;
+            inset: 0;
         }
     }
 }
