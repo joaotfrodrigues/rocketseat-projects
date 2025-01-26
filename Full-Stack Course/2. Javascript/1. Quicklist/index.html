@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quicklist</title>
+
+    <link rel="preload" href="styles/global.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/utility.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/nav.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/main.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/input.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/button.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/checkbox.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="styles/warnings.css" as="style" onload="this.rel='stylesheet'">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="preload" as="style" onload="this.rel='stylesheet'">
+</head>
+
+<body>
+    <nav class="container grid place-center">
+        <a href="/"><img src="assets/logo.svg" alt="Quicklist Logo"></a>
+    </nav>
+    <main class="container">
+        <a href="#"><- Voltar</a>
+        <h1>Compras da semana</h1>
+
+        <form id="add-item-form" class="flex gap-1 flex-wrap">
+            <input class="flex-1" type="text" id="new-item-name" placeholder="Adicione um novo item">
+            <button class="primary" type="submit">Adicionar item</button>
+        </form>
+
+        <ul role="list" class="items-list grid gap-075"></ul>
+
+        <div class="removed-warning flex gap-05 none">
+            <img src="assets/icons/warning-circle-filled.svg" alt="warning circle">
+            <span class="flex-1">O item foi removido da lista</span>
+            <button id="close-warning" class="flex align-center justify-center">
+                <img src="assets/icons/delete-small.svg" alt="close warning button">
+            </button>
+        </div>
+    </main>
+
+    <script src="scripts/main.js" async></script>
+</body>
+
+</html>

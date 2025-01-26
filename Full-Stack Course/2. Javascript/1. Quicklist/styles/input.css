@@ -1,0 +1,28 @@
+input[type="text"] {
+    background-color: var(--background-secondary);
+
+    border: 2px solid var(--border-primary);
+    border-radius: .75rem;
+    transition: .25s border-color ease;
+
+    font: 400 1rem/140% var(--font-family);
+    color: var(--content-tertiary);
+
+    outline: none;
+
+    padding: .75rem 1.125rem;
+
+    &::placeholder {
+        font: 400 1rem/140% var(--font-family);
+        color: var(--content-tertiary);
+    }
+
+    &:hover {
+        border-color: var(--border-hover);
+    }
+
+    &:focus-within {
+        border-color: var(--color-brand);
+        color: var(--content-primary);
+    }
+}

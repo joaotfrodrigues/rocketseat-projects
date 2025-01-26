@@ -1,0 +1,51 @@
+.container {
+    max-width: 39rem;
+    margin-inline: auto;
+
+    box-sizing: content-box;
+    padding-inline: 2rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.flex {
+    display: flex;
+}
+
+.none {
+    display: none;
+}
+
+.place-center {
+    place-items: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-1 {
+    gap: 1rem;
+}
+
+.gap-075 {
+    gap: .75rem;
+}
+
+.gap-05 {
+    gap: .5rem;
+}

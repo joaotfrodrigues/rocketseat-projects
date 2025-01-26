@@ -1,0 +1,17 @@
+.removed-warning {
+    background-color: var(--color-danger);
+
+    padding: .75rem;
+    border-radius: .75rem;
+
+    & span {
+        font: var(--label);
+        color: var(--always-white);
+    }
+
+    & button {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}

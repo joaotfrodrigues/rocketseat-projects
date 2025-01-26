@@ -1,0 +1,23 @@
+button.primary {
+    background-color: var(--color-brand);
+    transition: .25s background-color ease;
+
+    color: var(--always-white);
+    font: var(--label);
+
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: .75rem;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-brand-hover);
+    }
+}
+
+@media (width < 37.5rem) {
+    button.primary {
+        width: 100%;
+    }
+}

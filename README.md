@@ -6,9 +6,11 @@ All the projects developed in the Rocketseat courses, as an extra (no solution p
 
 ### Javascript
 
+- Quicklist - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/1.%20Quicklist/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/1.%20Quicklist/)
+
 ### HTML & CSS
 
-- Stars of Tomorrow - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/5.%20Tech%20News/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/6.%20Stars%20of%20Tomorrow/)
+- Stars of Tomorrow - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/6.%20Stars%20of%20Tomorrow/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/6.%20Stars%20of%20Tomorrow/)
 
 - Tech News - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/5.%20Tech%20News/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/1.%20HTML%20&%20CSS/5.%20Tech%20News/)
 
