@@ -3,6 +3,8 @@ input[type="text"] {
 
     border: 2px solid var(--border-primary);
     border-radius: .75rem;
+    -webkit-transition: .25s border-color ease;
+    -o-transition: .25s border-color ease;
     transition: .25s border-color ease;
 
     font: 400 1rem/140% var(--font-family);
@@ -11,6 +13,26 @@ input[type="text"] {
     outline: none;
 
     padding: .75rem 1.125rem;
+
+    &::-webkit-input-placeholder {
+        font: 400 1rem/140% var(--font-family);
+        color: var(--content-tertiary);
+    }
+
+    &::-moz-placeholder {
+        font: 400 1rem/140% var(--font-family);
+        color: var(--content-tertiary);
+    }
+
+    &:-ms-input-placeholder {
+        font: 400 1rem/140% var(--font-family);
+        color: var(--content-tertiary);
+    }
+
+    &::-ms-input-placeholder {
+        font: 400 1rem/140% var(--font-family);
+        color: var(--content-tertiary);
+    }
 
     &::placeholder {
         font: 400 1rem/140% var(--font-family);

@@ -1,5 +1,7 @@
 button.primary {
     background-color: var(--color-brand);
+    -webkit-transition: .25s background-color ease;
+    -o-transition: .25s background-color ease;
     transition: .25s background-color ease;
 
     color: var(--always-white);
