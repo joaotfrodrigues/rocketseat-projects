@@ -1,0 +1,27 @@
+#hero {
+    padding: 4.75rem 7.5rem 0 7.5rem;
+
+    &>#logo {
+        gap: 0.688rem;
+
+        color: var(--content-primary);
+        font: 800 1.5rem/130% var(--ff-sora);
+
+        &>img {
+            width: 2.375rem;
+            height: 2.375rem;
+        }
+    }
+}
+
+@media (width < 37.5rem) {
+    #hero {
+        padding: 2.75rem 0 0;
+
+        -webkit-box-pack: center;
+
+        -ms-flex-pack: center;
+
+        justify-content: center;
+    }
+}

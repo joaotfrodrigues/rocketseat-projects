@@ -11,6 +11,8 @@
 
     <link rel="preload" as="style" href="./styles/global.css" onload="this.rel='stylesheet'">
     <link rel="preload" as="style" href="./styles/utility.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="./styles/header.css" onload="this.rel='stylesheet'">
+    <link rel="preload" as="style" href="./styles/main.css" onload="this.rel='stylesheet'">
 
     <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sora:wght@100..800&display=swap"
@@ -18,7 +20,93 @@
 </head>
 
 <body>
+    <header id="hero" class="flex">
+        <a href="#" id="logo" class="flex align-center uppercase">
+            <img src="./assets/logo.svg" alt="logo">
+            Numbers
+        </a>
+    </header>
 
+    <main class="flex flex-wrap">
+        <div id="info" class="flex flex-column">
+            <div class="title flex flex-column gap-075">
+                <span class="uppercase">Online - gratuito</span>
+                <h1 class="uppercase">Sorteador de números</h1>
+            </div>
+            <div class="desktop faq flex flex-column">
+                <div class="flex gap-05">
+                    <img src="./assets/icons/user-cloud.svg" alt="user cloud icon">
+                    <div>
+                        <h2 class="question">Como funciona o sorteador de números?</h2>
+                        <p class="answer">O sorteador utiliza um algoritmo de geração aleatória para criar números
+                            dentro do intervalo
+                            especificado pelo usuário.</p>
+                    </div>
+                </div>
+                <div class="flex gap-05">
+                    <img src="./assets/icons/user-cloud.svg" alt="user cloud icon">
+                    <div>
+                        <h2 class="question">Posso escolher o intervalo dos números?</h2>
+                        <p class="answer">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números
+                            sorteados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="raffle" class="flex flex-column ">
+            <div>
+                <h3>Quero Sortear:</h3>
+                <p>Defina o intervalo e a quantidade de números, clique em "Sortear" e veja os resultados na tela. É
+                    rápido e fácil!</p>
+            </div>
+
+            <div class="flex gap-075">
+                <div id="numbers-quantity">
+                    <label for="numbers-quantity"></label>
+                    <input type="text" name="numbers-quantity" id="numbers-quantity" oninput="this.value = this.value.replace(/\D/g, '')">
+                </div>
+                <div id="numbers-from">
+                    <label for="numbers-from"></label>
+                    <input type="text" name="numbers-from" id="numbers-from" oninput="this.value = this.value.replace(/\D/g, '')">
+                </div>
+                <div id="numbers-to">
+                    <label for="numbers-to"></label>
+                    <input type="text" name="numbers-to" id="numbers-to" oninput="this.value = this.value.replace(/\D/g, '')">
+                </div>
+            </div>
+
+            <div>
+                <input type="checkbox" name="numbers-repeat" id="numbers-repeat">
+                <label for="numbers-repeat"></label>
+                <span>Não repetir número</span>
+            </div>
+
+            <button type="submit">
+                Sortear <img src="./assets/icons/right-arrow.svg" alt="right arrow icon"></img>
+            </button>
+        </form>
+
+        <div class="mobile faq flex flex-column">
+            <div class="flex gap-05">
+                <img src="./assets/icons/user-cloud.svg" alt="user cloud icon">
+                <div>
+                    <h2 class="question">Como funciona o sorteador de números?</h2>
+                    <p class="answer">O sorteador utiliza um algoritmo de geração aleatória para criar números dentro do
+                        intervalo
+                        especificado pelo usuário.</p>
+                </div>
+            </div>
+            <div class="flex gap-05">
+                <img src="./assets/icons/user-cloud.svg" alt="user cloud icon">
+                <div>
+                    <h2 class="question">Posso escolher o intervalo dos números?</h2>
+                    <p class="answer">Sim, você pode definir os valores mínimo e máximo para o intervalo dos números
+                        sorteados.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 
 </html>
