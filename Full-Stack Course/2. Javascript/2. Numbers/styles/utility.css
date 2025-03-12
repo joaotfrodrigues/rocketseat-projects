@@ -1,3 +1,7 @@
+.none {
+    display: none;
+}
+
 .flex {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -33,6 +37,10 @@
 
 .gap-075 {
     gap: .75rem;
+}
+
+.gap-25 {
+    gap: 2.5rem;
 }
 
 .uppercase {

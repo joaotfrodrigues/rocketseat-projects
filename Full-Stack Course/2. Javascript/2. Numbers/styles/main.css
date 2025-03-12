@@ -6,7 +6,6 @@ main {
     &>#info {
         width: 100%;
         max-width: 32rem;
-        margin-inline: auto;
 
         gap: 2.375rem;
 
@@ -41,14 +40,20 @@ main {
             color: var(--content-secondary);
         }
     }
+}
 
-    &>#raffle {
-        width: 100%;
-        max-width: 30.125rem;
-        margin-inline: auto;
+.submit-btn {
+    padding: 1rem;
 
-        gap: 2.5rem;
-    }
+    background-color: var(--background-tertiary);
+    border: 1px solid var(--background-tertiary);
+    border-radius: .5rem;
+
+    cursor: pointer;
+
+    font: var(--label-sm);
+    color: var(--content-primary);
+    text-transform: uppercase;
 }
 
 @media (width < 37.5rem) {

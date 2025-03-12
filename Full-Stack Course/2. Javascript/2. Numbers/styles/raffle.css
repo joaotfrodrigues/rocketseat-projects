@@ -1,0 +1,115 @@
+#raffle {
+    width: 100%;
+    max-width: 30.125rem;
+
+    padding-block: 2.125rem;
+
+    &>header {
+        &>h3 {
+            font: var(--label-md);
+            color: var(--content-primary);
+            text-transform: uppercase;
+        }
+
+        &>p {
+            font: var(--paragraph-lg);
+            color: var(--content-secondary);
+        }
+    }
+
+    & #numbers {
+        &>div {
+            display: -ms-grid;
+            display: grid;
+        }
+
+        & label {
+            font: var(--label-sm);
+            color: var(--content-secondary);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        & input {
+            margin-top: .5rem;
+            padding: .25rem .5rem;
+
+            max-width: 5.375rem;
+
+            outline: none;
+            background-color: var(--background-secondary);
+
+            border: 1px solid var(--background-secondary);
+            border-radius: .5rem;
+
+            font: var(--display-sm);
+            color: var(--content-primary);
+            text-align: center;
+        }
+    }
+
+    & #no-repeat {
+        margin-top: 1.25rem;
+
+        & input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        & input:checked+label {
+            background: var(--gradient-background);
+        }
+
+        & input:checked+label::before {
+            left: .812rem;
+        }
+
+        & label {
+            display: block;
+            width: 1.875rem;
+            height: 1.25rem;
+
+            border-radius: 1rem;
+            background-color: var(--content-tertiary);
+
+            position: relative;
+            cursor: pointer;
+        }
+
+        & label::before {
+            content: "";
+            width: .875rem;
+            height: .875rem;
+
+            position: absolute;
+            left: 0.188rem;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+
+            border-radius: 50%;
+
+            background-color: var(--content-primary);
+
+            -webkit-transition: .35s left ease;
+            -o-transition: .35s left ease;
+            transition: .35s left ease;
+        }
+
+        & label::after {
+            content: "Não repetir número";
+
+            display: block;
+            white-space: nowrap;
+
+            position: absolute;
+            left: 2.5rem;
+
+            font: var(--paragraph-md);
+            font-weight: 400;
+            color: var(--content-primary);
+        }
+    }
+}

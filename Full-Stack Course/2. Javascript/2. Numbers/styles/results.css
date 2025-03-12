@@ -1,0 +1,31 @@
+#results {
+    width: 100%;
+    max-width: 30.125rem;
+
+    padding-block: 2.125rem;
+
+    &>.title {
+        &>h2 {
+            font: var(--label-md);
+            color: var(--content-primary);
+            text-transform: uppercase;
+            text-align: center;
+        }
+        &>p {
+            font: var(--overline);
+            color: var(--content-secondary);
+            text-align: center;
+        }
+    }
+
+    & #result-numbers {
+        gap: .25rem;
+
+        & span {
+            padding: .438rem .813rem;
+
+            font: 700 4rem/150% var(--ff-roboto-mono);
+            color: var(--content-brand);
+        }
+    }
+}
