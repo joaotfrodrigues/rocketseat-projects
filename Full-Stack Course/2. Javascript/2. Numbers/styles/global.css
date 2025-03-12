@@ -67,6 +67,10 @@
 }
 
 body {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, rgba(0, 0, 0, .9)), to(rgba(0, 0, 0, 0.8))),
+        url("../assets/background.png") var(--background-primary);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, .9) 22%, rgba(0, 0, 0, 0.8) 100%),
+        url("../assets/background.png") var(--background-primary);
     background: linear-gradient(180deg, rgba(0, 0, 0, .9) 22%, rgba(0, 0, 0, 0.8) 100%),
         url("../assets/background.png") var(--background-primary);
 

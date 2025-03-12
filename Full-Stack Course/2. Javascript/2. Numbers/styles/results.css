@@ -11,6 +11,7 @@
             text-transform: uppercase;
             text-align: center;
         }
+
         &>p {
             font: var(--overline);
             color: var(--content-secondary);
@@ -25,7 +26,130 @@
             padding: .438rem .813rem;
 
             font: 700 4rem/150% var(--ff-roboto-mono);
-            color: var(--content-brand);
+            color: var(--color-inverse);
+
+            position: relative;
+            -webkit-animation: 3s ease-in forwards show-number;
+            animation: 3s ease-in forwards show-number;
         }
+
+        & span::before {
+            content: "";
+            padding: 0;
+            width: 6.25rem;
+            height: 6.25rem;
+
+            position: absolute;
+            z-index: -1;
+
+            background-color: var(--content-brand);
+            border-radius: 1.75rem;
+
+            -webkit-animation: 3s linear forwards spinning;
+
+            animation: 3s linear forwards spinning;
+        }
+    }
+}
+
+@-webkit-keyframes show-number {
+    0% {
+        color: transparent;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    41% {
+        color: var(--color-inverse);
+    }
+
+    95% {
+        font-size: 4rem;
+        color: var(--color-inverse);
+    }
+
+    100% {
+        font-size: 3rem;
+        color: var(--content-brand);
+    }
+}
+
+@keyframes show-number {
+    0% {
+        color: transparent;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    41% {
+        color: var(--color-inverse);
+    }
+
+    95% {
+        font-size: 4rem;
+        color: var(--color-inverse);
+    }
+
+    100% {
+        font-size: 3rem;
+        color: var(--content-brand);
+    }
+}
+
+@-webkit-keyframes spinning {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    12% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    20% {
+        -webkit-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0);
+    }
+
+    90% {
+        -webkit-transform: scale(1) rotate(360deg);
+        transform: scale(1) rotate(360deg);
+    }
+
+    100% {
+        -webkit-transform: scale(0) rotate(360deg);
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+@keyframes spinning {
+    0% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    12% {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    20% {
+        -webkit-transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0);
+    }
+
+    90% {
+        -webkit-transform: scale(1) rotate(360deg);
+        transform: scale(1) rotate(360deg);
+    }
+
+    100% {
+        -webkit-transform: scale(0) rotate(360deg);
+        transform: scale(0) rotate(360deg);
     }
 }

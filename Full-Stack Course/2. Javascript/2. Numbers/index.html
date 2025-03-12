@@ -65,17 +65,17 @@
 
             <div>
                 <div id="numbers" class="flex gap-075">
-                    <div id="numbers-quantity">
+                    <div>
                         <label for="numbers-quantity">Números</label>
                         <input type="text" name="numbers-quantity" id="numbers-quantity" value="2"
                             oninput="this.value = this.value.replace(/\D/g, '')">
                     </div>
-                    <div id="numbers-from">
+                    <div>
                         <label for="numbers-from">De</label>
                         <input type="text" name="numbers-from" id="numbers-from" value="1"
                             oninput="this.value = this.value.replace(/\D/g, '')">
                     </div>
-                    <div id="numbers-to">
+                    <div>
                         <label for="numbers-to">Até</label>
                         <input type="text" name="numbers-to" id="numbers-to" value="100"
                             oninput="this.value = this.value.replace(/\D/g, '')">
@@ -95,10 +95,10 @@
         <div id="results" class="none flex-column gap-25">
             <div class="title">
                 <h2>Resultado do sorteio</h2>
-                <p><span>1</span>º resultado</p>
+                <p><span id="number-retries">1</span>º resultado</p>
             </div>
             <div id="result-numbers" class="flex flex-wrap justify-center align-center"></div>
-            <button id="raffle-again" type="submit" class="submit-btn flex align-center justify-center gap-05">
+            <button id="raffle-again" type="submit" class="submit-btn none align-center justify-center gap-05">
                 Sortear novamente <img src="./assets/icons/replay.svg" alt="right arrow icon"></img>
             </button>
         </div>
@@ -123,6 +123,8 @@
             </div>
         </div>
     </main>
+
+    <script src="./scripts/main.js"></script>
 </body>
 
 </html>
