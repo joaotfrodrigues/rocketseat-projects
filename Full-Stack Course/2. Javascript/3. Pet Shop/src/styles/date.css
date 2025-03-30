@@ -1,5 +1,7 @@
 input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
 }
@@ -28,7 +30,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     &::before {
         left: .75rem;
+    }
+
+    &[type="date"]::before {
         background: url("../assets/calendar.svg") no-repeat center/contain;
+    }
+
+    &[type="time"]::before {
+        background: url("../assets/clock.svg") no-repeat center/contain;
     }
 
     &::after {

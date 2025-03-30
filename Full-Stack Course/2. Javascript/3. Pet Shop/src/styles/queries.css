@@ -1,6 +1,6 @@
 @media (width < 43.75rem) {
     .logo {
-        position: static;
+        position: relative;
         width: fit-content;
     }
     .container {
@@ -24,5 +24,17 @@
 
         padding: 1.125rem 1.25rem;
         margin-top: 2.75rem;
+    }
+    #schedule-modal form {
+        margin-block: 4.75rem 2.5rem;
+    }
+    .appointment-date {
+        flex-direction: column;
+    }
+}
+
+@media (height < 56.25rem) {
+    #schedule-modal form {
+        max-height: 85vh;
     }
 }

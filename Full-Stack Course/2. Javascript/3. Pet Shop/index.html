@@ -14,6 +14,7 @@
     <link href="./src/styles/main.css" rel="preload" as="style" onload="this.rel='stylesheet'">
     <link href="./src/styles/date.css" rel="preload" as="style" onload="this.rel='stylesheet'">
     <link href="./src/styles/appointments.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/schedule-container.css" rel="preload" as="style" onload="this.rel='stylesheet'">
     <link href="./src/styles/queries.css" rel="preload" as="style" onload="this.rel='stylesheet'">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
@@ -37,7 +38,7 @@
                 </div>
                 <input class="date" id="appointment-date" type="date">
             </header>
-            
+
             <section id="appointments" class="flex flex-column gap-075">
                 <div class="appointments-container" id="morning-appointments">
                     <header class="flex align-center gap-075">
@@ -60,7 +61,8 @@
 
                 <div class="appointments-container" id="afternoon-appointments">
                     <header class="flex align-center gap-075">
-                        <img src="./src/assets/afternoon.svg" alt="Afternoon icon" loading="lazy" width="20" height="20">
+                        <img src="./src/assets/afternoon.svg" alt="Afternoon icon" loading="lazy" width="20"
+                            height="20">
                         <h2 class="flex-1">Tarde</h2>
                         <span>13h-18h</span>
                     </header>
@@ -109,6 +111,51 @@
 
         <div class="fixed new-appointment-container">
             <button class="primary-btn" id="new-appointment" type="button">Novo agendamento</button>
+        </div>
+
+        <div id="schedule-modal" class="fixed none align-center justify-center">
+            <form class="flex flex-column">
+                <div class="grid gap-025">
+                    <h2>Agende um atendimento</h2>
+                    <p>Preencha os dados do cliente para realizar o agendamento:</p>
+                </div>
+                <fieldset class="grid gap-1">
+                    <div class="grid gap-025">
+                        <label for="owner-name">Nome do tutor</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="owner-name" placeholder="Helena Souza">
+                        </div>
+                    </div>
+                    <div class="grid gap-025">
+                        <label for="pet-name">Nome do pet</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="pet-name" placeholder="Cheddar">
+                        </div>
+                    </div>
+                    <div class="grid gap-025">
+                        <label for="owner-phone">Telefone</label>
+                        <div class="input-wrapper">
+                            <input type="tel" id="owner-phone" placeholder="000 000 000">
+                        </div>
+                    </div>
+                    <div class="grid gap-025">
+                        <label for="appointment-description">Descrição do serviço</label>
+                        <textarea id="appointment-description" placeholder="Banho e tosa"></textarea>
+                    </div>
+                    <div class="appointment-date flex gap-1">
+                        <div class="flex flex-1 flex-column gap-025">
+                            <label for="appointment-day">Data</label>
+                            <input class="date" id="appointment-day" type="date">
+                        </div>
+                        <div class="flex flex-1 flex-column gap-025">
+                            <label for="appointment-hour">Hora</label>
+                            <input class="date" id="appointment-hour" type="time">
+                        </div>
+                    </div>
+                </fieldset>
+
+                <button class="primary-btn" id="register-appointment" type="button">Agendar</button>
+            </form>
         </div>
     </main>
 </body>

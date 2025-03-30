@@ -5,6 +5,14 @@
     padding: 5rem;
 }
 
+.none {
+    display: none;
+}
+
+.grid {
+    display: grid;
+}
+
 .flex {
     display: flex;
 }
@@ -17,12 +25,24 @@
     align-items: center;
 }
 
+.justify-center {
+    justify-content: center;
+}
+
 .flex-column {
     flex-direction: column;
 }
 
+.gap-025 {
+    gap: .25rem;
+}
+
 .gap-075 {
     gap: .75rem;
+}
+
+.gap-1 {
+    gap: 1rem;
 }
 
 .fixed {
