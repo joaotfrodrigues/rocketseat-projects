@@ -48,3 +48,7 @@
 .fixed {
     position: fixed;
 }
+
+.overflow-y-hidden {
+    overflow-y: hidden;
+}

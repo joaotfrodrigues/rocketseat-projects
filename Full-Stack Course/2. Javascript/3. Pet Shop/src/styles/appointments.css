@@ -55,7 +55,7 @@
             color: var(--content-secondary);
         }
 
-        & .remove-appointment {
+        & .appointment-remove {
             background: none;
             border: none;
 

@@ -1,7 +1,3 @@
-body {
-    overflow-y: hidden;
-}
-
 #schedule-modal {
     top: 0;
     left: 0;
@@ -97,7 +93,7 @@ body {
             }
         }
 
-        & button[type="button"] {
+        & button[type="submit"] {
             align-self: flex-end;
         }
     }
