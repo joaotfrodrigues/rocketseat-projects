@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Pet</title>
+
+    <link href="./src/styles/global.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/utility.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/main.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/date.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/appointments.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link href="./src/styles/queries.css" rel="preload" as="style" onload="this.rel='stylesheet'">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="preload" as="style" onload="this.rel='stylesheet'">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="preload" as="style" onload="this.rel='stylesheet'">
+</head>
+
+<body>
+    <main>
+        <div class="logo fixed">
+            <img src="./src/assets/logo.svg" alt="Mundo Pet logo" loading="lazy" width="113" height="24">
+        </div>
+
+        <div class="container">
+            <header class="flex align-center">
+                <div class="flex-1">
+                    <h1>Sua agenda</h1>
+                    <p>Aqui você pode ver todos os clientes e serviços agendados para hoje.</p>
+                </div>
+                <input class="date" id="appointment-date" type="date">
+            </header>
+            
+            <section id="appointments" class="flex flex-column gap-075">
+                <div class="appointments-container" id="morning-appointments">
+                    <header class="flex align-center gap-075">
+                        <img src="./src/assets/morning.svg" alt="Morning icon" loading="lazy" width="20" height="20">
+                        <h2 class="flex-1">Manhã</h2>
+                        <span>09h-12h</span>
+                    </header>
+                    <ul role="list">
+                        <li class="appointment-item">
+                            <span class="appointment-hour">09:00</span>
+                            <p>
+                                <span class="appointment-name">Thor</span>
+                                <span class="appointment-owner">/ Fernanda Costa</span>
+                            </p>
+                            <p class="appointment-description">Vacinação</p>
+                            <button class="remove-appointment" type="button">Remover agendamento</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="appointments-container" id="afternoon-appointments">
+                    <header class="flex align-center gap-075">
+                        <img src="./src/assets/afternoon.svg" alt="Afternoon icon" loading="lazy" width="20" height="20">
+                        <h2 class="flex-1">Tarde</h2>
+                        <span>13h-18h</span>
+                    </header>
+                    <ul role="list">
+                        <li class="appointment-item">
+                            <span class="appointment-hour">13:00</span>
+                            <p>
+                                <span class="appointment-name">Mel</span>
+                                <span class="appointment-owner">/ João Souza</span>
+                            </p>
+                            <p class="appointment-description">Corte de Unhas</p>
+                            <button class="remove-appointment" type="button">Remover agendamento</button>
+                        </li>
+                        <li class="appointment-item">
+                            <span class="appointment-hour">13:00</span>
+                            <p>
+                                <span class="appointment-name">Mel</span>
+                                <span class="appointment-owner">/ João Souza</span>
+                            </p>
+                            <p class="appointment-description">Corte de Unhas</p>
+                            <button class="remove-appointment" type="button">Remover agendamento</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="appointments-container" id="night-appointments">
+                    <header class="flex align-center gap-075">
+                        <img src="./src/assets/night.svg" alt="Night icon" loading="lazy" width="20" height="20">
+                        <h2 class="flex-1">Noite</h2>
+                        <span>19h-21h</span>
+                    </header>
+                    <ul role="list">
+                        <li class="appointment-item">
+                            <span class="appointment-hour">20:00</span>
+                            <p>
+                                <span class="appointment-name">Max</span>
+                                <span class="appointment-owner">/ Camila Santos</span>
+                            </p>
+                            <p class="appointment-description">Limpeza de Dentes</p>
+                            <button class="remove-appointment" type="button">Remover agendamento</button>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="fixed new-appointment-container">
+            <button class="primary-btn" id="new-appointment" type="button">Novo agendamento</button>
+        </div>
+    </main>
+</body>
+
+</html>

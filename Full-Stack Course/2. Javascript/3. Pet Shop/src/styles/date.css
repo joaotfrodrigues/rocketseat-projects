@@ -1,0 +1,42 @@
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.date {
+    background: none;
+    padding: .75rem 2.5rem;
+
+    border: 1px solid var(--border-primary);
+    border-radius: .5rem;
+
+    font: 400 1rem/1.5rem var(--ff-inter);
+
+    cursor: pointer;
+    position: relative;
+
+    &::before, &::after {
+        content: "";
+        width: 1.25rem;
+        height: 1.25rem;
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        left: .75rem;
+        background: url("../assets/calendar.svg") no-repeat center/contain;
+    }
+
+    &::after {
+        right: .75rem;
+        background: url("../assets/bottom-arrow.svg") no-repeat center/contain;
+    }
+}
+
+#appointment-date {
+    max-width: 10.75rem;
+}

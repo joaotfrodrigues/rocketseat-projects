@@ -1,0 +1,30 @@
+.container {
+    max-width: 54.438rem;
+    margin-inline: auto;
+
+    padding: 5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-075 {
+    gap: .75rem;
+}
+
+.fixed {
+    position: fixed;
+}

@@ -1,0 +1,95 @@
+:root {
+    --content-primary: #FFFFFF;
+    --content-secondary: #98959D;
+    --content-tertiary: #666666;
+    --content-brand: #9282FA;
+
+    --background-primary: #151515;
+    --background-secondary: #1E1E1E;
+    --background-tertiary: #23242C;
+    --background-brand: #9282FA;
+    --background-highlights: #BDB4FA;
+
+    --border-primary: #3E3C41;
+    --border-secondary: #86818C;
+    --border-brand: #9282FA;
+    --border-divisor: #353339;
+
+    --ff-inter-tight: "Inter Tight", sans-serif;
+    --title: 700 1.5rem/2rem var(--ff-inter-tight);
+
+    --ff-inter: "Inter", sans-serif;
+    --paragraph-md: 500 .875rem/1.5rem var(--ff-inter);
+    --paragraph-sm: 500 .75rem/1rem var(--ff-inter);
+
+    --label-lg: 700 1rem/1.5rem var(--ff-inter);
+    --label-md: 700 .875rem/1.5rem var(--ff-inter);
+    --label-sm: 700 .75rem/1rem var(--ff-inter);
+
+    --link: 500 .75rem/1rem var(--ff-inter);
+}
+
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    color: inherit;
+
+    font: inherit;
+    font-style: normal;
+    font-optical-sizing: auto;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+body {
+    background-color: #14151D;
+    min-height: 100lvh;
+
+    font: var(--paragraph-sm);
+    color: var(--content-secondary);
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul[role="list"] {
+    list-style: none;
+}
+
+button.primary-btn {
+    background-color: var(--content-brand);
+    color: #050505;
+
+    padding: .75rem 1.5rem;
+    border: none;
+    border-radius: .5rem;
+
+    font: var(--label-lg);
+    text-transform: uppercase;
+
+    cursor: pointer;
+    -webkit-transition: .3s background-color ease;
+    -o-transition: .3s background-color ease;
+    transition: .3s background-color ease;
+
+    &:hover {
+        background-color: var(--background-highlights);
+    }
+}

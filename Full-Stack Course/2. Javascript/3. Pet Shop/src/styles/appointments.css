@@ -1,0 +1,72 @@
+#appointments {
+    margin-top: 2rem;
+
+    & .appointments-container {
+        background-color: var(--background-tertiary);
+        border-radius: 0.625rem;
+
+        & > header {
+            padding: .75rem 1.25rem;
+            border-bottom: 1px solid #2E2C30;
+
+            & h2 {
+                font: var(--label-lg);
+                color: var(--content-primary);
+            }
+
+            & span {
+                font: var(--label-lg);
+                color: var(--content-secondary);
+            }
+        }
+
+        & > ul {
+            padding: 1.25rem;
+        }
+    }
+
+    & .appointment-item {
+        display: flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+        align-items: center;
+        gap: 1rem;
+
+        justify-content: flex-end;
+
+        padding: .75rem;
+
+        & p {
+            flex: 1;
+        }
+
+        & .appointment-hour {
+            font: var(--label-md);
+            color: var(--content-primary);
+        }
+
+        & .appointment-name {
+            font: var(--label-sm);
+            color: var(--content-primary);
+        }
+
+        & .appointment-owner, & .appointment-description {
+            font: var(--paragraph-sm);
+            color: var(--content-secondary);
+        }
+
+        & .remove-appointment {
+            background: none;
+            border: none;
+
+            font: var(--paragraph-sm);
+            color: var(--content-tertiary);
+
+            cursor: pointer;
+        }
+    }
+
+    & .appointment-item:not(:last-child) {
+        border-bottom: .6px solid var(--border-divisor);
+    }
+}
