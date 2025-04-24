@@ -1,0 +1,12 @@
+{
+  "name": "tickets-api",
+  "version": "1.0.0",
+  "main": "src/server.mjs",
+  "scripts": {
+    "start": "node --watch src/server.mjs"
+  },
+  "keywords": [],
+  "author": "João Rodrigues",
+  "license": "ISC",
+  "description": "Tickets API"
+}
