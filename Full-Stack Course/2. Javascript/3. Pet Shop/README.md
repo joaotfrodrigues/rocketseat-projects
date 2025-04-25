@@ -1,3 +1,3 @@
 # Live Preview
 
-- Pet Shop - (still in development)
+- Pet Shop - Can't host the project, using webpack, in GitHub
