@@ -4,9 +4,13 @@ All the projects developed in the Rocketseat courses, as an extra (no solution p
 
 ## Live Preview
 
+### Node.JS
+
+- Tickets API - Can't host the API in GitHub
+
 ### Javascript
 
-- Pet Shop - (still in development)
+- Pet Shop - Can't host the project, using webpack, in GitHub
 
 - Numbers - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/2.%20Numbers/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/2.%20Numbers/)
 
