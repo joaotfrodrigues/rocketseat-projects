@@ -2,11 +2,13 @@
 
 ## Node.JS
 
-- Tickets API - Can't host the API in GitHub
+- Tasks Manager API
+
+- Tickets API
 
 ## Javascript
 
-- Pet Shop - Can't host the project, using webpack, in GitHub
+- Pet Shop
 
 - Numbers - [https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/2.%20Numbers/](https://joaotfrodrigues.github.io/rocketseat-projects/Full-Stack%20Course/2.%20Javascript/2.%20Numbers/)
 
