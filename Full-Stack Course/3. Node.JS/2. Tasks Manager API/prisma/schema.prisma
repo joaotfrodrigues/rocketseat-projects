@@ -1,0 +1,127 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum userRole {
+  admin
+  member
+}
+
+enum TaskStatus {
+  pending
+  in_progress
+  completed
+}
+
+enum TaskPriority {
+  low
+  medium
+  high
+}
+
+model User {
+  id String @id @default(uuid())
+  name String @db.VarChar(100)
+  email String @unique @db.VarChar(150)
+  password String @db.VarChar(255)
+
+  role userRole @default(member)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  teamMembers TeamMember[]
+  tasks Task[]
+
+  taskHistory TaskHistory[]
+
+  @@map("users")
+  @@index([email])
+}
+
+model Team {
+  id String @id @default(uuid())
+  name String @db.VarChar(100)
+  description String @db.Text
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  teamMembers TeamMember[]
+  tasks Task[]
+
+  @@map("teams")
+  @@index([id])
+}
+
+model TeamMember {
+  id String @id @default(uuid())
+
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  teamId String @map("team_id")
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("team_members")
+  @@unique([userId, teamId])
+  @@index([userId])
+  @@index([teamId])
+}
+
+model Task {
+  id String @id @default(uuid())
+  title String @db.VarChar(200)
+  description String @db.Text
+
+  status TaskStatus @default(pending)
+  priority TaskPriority @default(low)
+
+  assignedTo String @map("assigned_to")
+  user User @relation(fields: [assignedTo], references: [id], onDelete: Cascade)
+
+  teamId String @map("team_id")
+  team Team @relation(fields: [teamId], references: [id], onDelete: Cascade)
+
+  taskHistory TaskHistory[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  @@map("tasks")
+  @@index([assignedTo])
+  @@index([teamId])
+}
+
+model TaskHistory {
+  id String @id @default(uuid())
+
+  taskId String @map("task_id")
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+
+  changedBy String @map("changed_by")
+  user User @relation(fields: [changedBy], references: [id], onDelete: Cascade)
+
+  oldStatus TaskStatus @map("old_status")
+  newStatus TaskStatus @map("new_status")
+
+  changedAt DateTime @default(now()) @map("changed_at")
+
+  @@map("task_history")
+  @@index([taskId])
+  @@index([changedBy])
+  @@index([changedAt])
+}
