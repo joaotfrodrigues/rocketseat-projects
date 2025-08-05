@@ -35,6 +35,9 @@ export class TeamMembersController {
       data: {
         userId,
         teamId
+      },
+      include: {
+        team: true
       }
     });
 
@@ -61,13 +64,13 @@ export class TeamMembersController {
       throw new AppError("Team not found", 404);
     }
 
-    await prisma.teamMember.delete({ 
-      where: { 
+    await prisma.teamMember.delete({
+      where: {
         userId_teamId: {
           userId,
           teamId
         }
-      } 
+      }
     });
 
     return response.status(204).json();

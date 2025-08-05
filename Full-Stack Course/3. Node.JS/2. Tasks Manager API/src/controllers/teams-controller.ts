@@ -7,7 +7,11 @@ import { prisma } from "@/database/prisma";
 
 export class TeamsController {
   async index(request: Request, response: Response) {
-    const teams = await prisma.team.findMany();
+    const teams = await prisma.team.findMany({
+      include: {
+        teamMembers: { select: { userId: true, createdAt: true } }
+      }
+    });
 
     return response.json(teams);
   }
@@ -19,7 +23,12 @@ export class TeamsController {
 
     const { id } = paramsSchema.parse(request.params);
 
-    const team = await prisma.team.findFirst({ where: { id } });
+    const team = await prisma.team.findFirst({
+      include: {
+        teamMembers: { select: { userId: true, createdAt: true } }
+      },
+      where: { id }
+    });
 
     if (!team) {
       throw new AppError("Team not found", 404);

@@ -14,7 +14,17 @@ export class UsersController {
 
     const { user_id: userId } = paramsSchema.parse(request.params);
 
-    const user = await prisma.user.findFirst({ where: { id: userId } });
+    const user = await prisma.user.findFirst({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        updatedAt: true
+      },
+      where: { id: userId }
+    });
 
     if (!user) {
       throw new AppError("User not found", 404);
@@ -24,7 +34,16 @@ export class UsersController {
   }
 
   async index(request: Request, response: Response) {
-    const users = await prisma.user.findMany();
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        createdAt: true,
+        updatedAt: true
+      }
+    });
 
     return response.json(users);
   }
