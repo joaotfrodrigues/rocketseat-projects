@@ -7,6 +7,28 @@ import { prisma } from "@/database/prisma";
 
 
 export class UsersController {
+  async show(request: Request, response: Response) {
+    const paramsSchema = z.object({
+      user_id: z.uuid()
+    });
+
+    const { user_id: userId } = paramsSchema.parse(request.params);
+
+    const user = await prisma.user.findFirst({ where: { id: userId } });
+
+    if (!user) {
+      throw new AppError("User not found", 404);
+    }
+
+    return response.json(user);
+  }
+
+  async index(request: Request, response: Response) {
+    const users = await prisma.user.findMany();
+
+    return response.json(users);
+  }
+
   async create(request: Request, response: Response) {
     const bodySchema = z.object({
       name: z.string().trim().min(2).max(50),
