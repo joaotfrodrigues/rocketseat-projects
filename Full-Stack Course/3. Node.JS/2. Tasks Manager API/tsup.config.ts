@@ -1,0 +1,38 @@
+import { defineConfig } from 'tsup';
+
+export default defineConfig({
+  entry: [
+    'src/app.ts',
+    'src/env.ts', 
+    'src/server.ts',
+    'src/config/auth.ts',
+    'src/database/prisma.ts',
+    'src/types/request.d.ts',
+    'src/middlewares/ensure-authenticated.ts',
+    'src/middlewares/error-handling.ts',
+    'src/middlewares/verify-task-authorization.ts',
+    'src/middlewares/verify-user-authorization.ts',
+    'src/utils/app-error.ts',
+    'src/controllers/sessions-controller.ts',
+    'src/controllers/task-status-controller.ts',
+    'src/controllers/tasks-controller.ts',
+    'src/controllers/team-members-controller.ts',
+    'src/controllers/teams-controller.ts',
+    'src/controllers/users-controller.ts',
+    'src/routes/index.ts',
+    'src/routes/sessions-routes.ts',
+    'src/routes/tasks-routes.ts',
+    'src/routes/team-members-routes.ts',
+    'src/routes/teams-routes.ts',
+    'src/routes/users-routes.ts'
+  ],
+  format: ['cjs'],
+  dts: false,
+  splitting: false,
+  sourcemap: true,
+  clean: true,
+  outDir: 'build',
+  target: 'node18',
+  platform: 'node',
+  external: ['@prisma/client'],
+}); 

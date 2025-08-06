@@ -65,13 +65,31 @@ Run the Prisma migrations to set up the database schema:
 npx prisma migrate dev
 ```
 
-### 5. Start the Development Server
+### 5. Build the Project (Optional)
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+This will create a `build/` directory with the compiled JavaScript files.
+
+### 6. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
 The API will be available at `http://localhost:3333`
+
+### 7. Start the Production Server (After Building)
+
+```bash
+npm start
+```
+
+This runs the compiled version from the `build/` directory.
 
 ## 📚 API Endpoints
 
@@ -273,6 +291,8 @@ npm test
 ## 📦 Scripts
 
 - `npm run dev`: Start development server with hot reload
+- `npm run build`: Build the project for production
+- `npm start`: Start the production server (after building)
 - `npm test`: Run test suite
 - `npx prisma migrate dev`: Run database migrations
 - `npx prisma studio`: Open Prisma Studio for database management

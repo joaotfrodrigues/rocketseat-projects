@@ -4,7 +4,9 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "tsx --watch src/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsup",
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "João Rodrigues",
@@ -27,6 +29,7 @@
     "@types/node": "^24.1.0",
     "jest": "^30.0.5",
     "ts-jest": "^29.4.1",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.3",
     "typescript": "^5.9.2"
   }
