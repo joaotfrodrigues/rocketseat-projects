@@ -10,7 +10,11 @@ const config = {
   ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1"
-  }
+  },
+  globalSetup: "<rootDir>/src/test-setup.ts",
+  globalTeardown: "<rootDir>/src/test-setup.ts",
+  setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
+  testTimeout: 30000
 };
 
 module.exports = config;

@@ -5,6 +5,11 @@
   "scripts": {
     "dev": "tsx --watch src/server.ts",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:db:setup": "node scripts/setup-test-db.js setup",
+    "test:db:teardown": "node scripts/setup-test-db.js teardown",
+    "test:db:reset": "npm run test:db:teardown && npm run test:db:setup",
     "build": "tsup",
     "start": "node build/server.js"
   },

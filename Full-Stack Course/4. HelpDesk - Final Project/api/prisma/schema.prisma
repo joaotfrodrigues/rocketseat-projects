@@ -1,0 +1,125 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  admin
+  technician
+  client
+}
+
+enum ServiceStatus {
+  pending
+  opened
+  closed
+}
+
+model User {
+  id String @id @default(uuid())
+  name String @db.VarChar(100)
+  email String @unique @db.VarChar(150)
+  password String @db.VarChar(255)
+
+  role UserRole @default(client)
+
+  avatar String?
+
+  schedules Schedule[]
+  services Service[]
+
+  callsAsClient Call[] @relation("ClientCalls")
+  callsAsTechnician Call[] @relation("TechnicianCalls")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("users")
+}
+
+model Schedule {
+  id String @id @default(uuid())
+
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  scheduledHour String @db.VarChar(5) @map("schedule_hour")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("schedules")
+}
+
+model Service {
+  id String @id @default(uuid())
+
+  title String @db.VarChar(100)
+  price Float
+  status ServiceStatus @default(pending)
+
+  userId String @map("user_id")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  calls Call[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at") 
+
+  @@map("services")
+}
+
+model Call {
+  id String @id @default(uuid())
+
+  title String @db.VarChar(100)
+  description String
+  appointmentDate DateTime @map("appointment_date")
+
+  serviceId String @map("service_id")
+  service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  clientId String @map("client_id")
+  client User @relation("ClientCalls", fields: [clientId], references: [id], onDelete: Cascade)
+
+  technicianId String @map("technician_id")
+  technician User @relation("TechnicianCalls", fields: [technicianId], references: [id], onDelete: Cascade)
+
+  extraServices ExtraService[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("calls")
+}
+
+model ExtraService {
+  id String @id @default(uuid())
+
+  description String
+  price Float
+
+  callId String @map("call_id")
+  call Call @relation(fields: [callId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  @@map("extra_services")
+}

@@ -1,0 +1,21 @@
+services:
+  postgres-test:
+    image: "bitnami/postgresql:latest"
+    container_name: postgres-test
+    restart: "no"
+    environment:
+      POSTGRESQL_PASSWORD: postgres
+      POSTGRESQL_USERNAME: postgres
+      POSTGRESQL_DATABASE: tasks_manager_test
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_test_data:/bitnami/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_test_data: 
