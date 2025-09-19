@@ -4,6 +4,10 @@ All the projects developed in the Rocketseat courses, as an extra (no solution p
 
 ## Live Preview
 
+### Final Project
+
+- HelpDesk - Back-end + Front-End
+
 ### Node.JS
 
 - Tasks Manager API
