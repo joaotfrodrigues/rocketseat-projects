@@ -20,10 +20,15 @@ enum UserRole {
   client
 }
 
-enum ServiceStatus {
+enum CallStatus {
   pending
   opened
   closed
+}
+
+enum ServiceStatus {
+  active
+  inactive
 }
 
 model User {
@@ -53,7 +58,7 @@ model Service {
 
   title String @db.VarChar(100)
   price Float
-  status ServiceStatus @default(pending)
+  status ServiceStatus @default(active)
 
   userId String @map("user_id")
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -62,7 +67,6 @@ model Service {
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at") 
 
   @@map("services")
 }
@@ -73,6 +77,7 @@ model Call {
   title String @db.VarChar(100)
   description String
   appointmentDate DateTime @map("appointment_date")
+  status CallStatus @default(pending)
 
   serviceId String @map("service_id")
   service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
@@ -87,7 +92,6 @@ model Call {
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
 
   @@map("calls")
 }
@@ -103,7 +107,6 @@ model ExtraService {
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
 
   @@map("extra_services")
 }
