@@ -39,12 +39,11 @@ export class UsersController {
       data: {
         name,
         email,
-        password: hashedPassword,
-        role: "client"
+        password: hashedPassword
       }
     });
 
-    const { password: _, ...userWithoutPassword } = user;
+    const { password: _, schedules, ...userWithoutPassword } = user;
 
     return response.status(201).json(userWithoutPassword);
   }
