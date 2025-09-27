@@ -4,6 +4,7 @@ import { usersRoutes } from "./users-routes";
 import { sessionsRoutes } from "./sessions-routes";
 import { techniciansRoutes } from "./technicians-routes";
 import { servicesRoutes } from "./services-routes";
+import { clientsRoutes } from "./clients-routes";
 
 import { ensureAuthenticated } from "@/middlewares/ensure-authenticated";
 
@@ -19,3 +20,4 @@ routes.use(ensureAuthenticated);
 
 routes.use("/technicians", techniciansRoutes);
 routes.use("/services", servicesRoutes);
+routes.use("/clients", clientsRoutes);
