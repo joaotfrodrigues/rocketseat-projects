@@ -25,6 +25,12 @@ techniciansRoutes.post(
   techniciansController.create
 );
 
+techniciansRoutes.patch(
+  "/:id",
+  verifyUserAuthorization(["admin"]),
+  techniciansController.update
+);
+
 techniciansRoutes.delete(
   "/:id",
   verifyUserAuthorization(["admin"]),

@@ -89,7 +89,8 @@ export class TechniciansController {
       schedules: z.string()
         .refine((schedules) => {
           try {
-            return JSON.parse(schedules);
+            const parsed = JSON.parse(schedules);
+            return Array.isArray(parsed);
           } catch (error) {
             return false;
           }
@@ -103,6 +104,7 @@ export class TechniciansController {
     if (emailInUse) {
       throw new AppError("E-mail já está em uso");
     }
+
     const hashedPassword = await hash(password as string, 8);
 
     const user = await prisma.user.create({
@@ -118,6 +120,62 @@ export class TechniciansController {
     const { password: _, ...userWithoutPassword } = user;
 
     return response.status(201).json(userWithoutPassword);
+  }
+
+  async update(request: Request, response: Response) {
+    const paramsSchema = z.object({
+      id: z.uuid()
+    });
+
+    const bodySchema = z.object({
+      name: z.string().trim()
+        .min(2, { message: "O campo nome é obrigatório" })
+        .max(16, { message: "Nome demasiado longo" }),
+      email: z.string().trim()
+        .email({ message: "O campo e-mail é obrigatório" })
+        .toLowerCase(),
+      schedules: z.string()
+        .refine((schedules) => {
+          try {
+            const parsed = JSON.parse(schedules);
+            return Array.isArray(parsed);
+          } catch (error) {
+            return false;
+          }
+        }, { message: "Horários inválidos" })
+    });
+
+    const { id } = paramsSchema.parse(request.params);
+    const { name, email, schedules } = bodySchema.parse(request.body);
+
+    const emailInUse = await prisma.user.findFirst({
+      where: {
+        email,
+        NOT: {
+          id
+        }
+      }
+    });
+
+    if (emailInUse) {
+      throw new AppError("E-mail já está em uso");
+    }
+
+    const user = await prisma.user.update({
+      data: {
+        name,
+        email,
+        schedules
+      },
+      where: {
+        id,
+        role: "technician"
+      }
+    });
+
+    const { password, ...userWithoutPassword } = user;
+
+    return response.json(userWithoutPassword);
   }
 
   async remove(request: Request, response: Response) {

@@ -42,7 +42,6 @@ model User {
   avatar String?
 
   schedules String?
-  services Service[]
 
   callsAsClient Call[] @relation("ClientCalls")
   callsAsTechnician Call[] @relation("TechnicianCalls")
@@ -60,13 +59,11 @@ model Service {
   price Float
   status ServiceStatus @default(active)
 
-  userId String @map("user_id")
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   calls Call[]
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime? @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
 
   @@map("services")
 }
