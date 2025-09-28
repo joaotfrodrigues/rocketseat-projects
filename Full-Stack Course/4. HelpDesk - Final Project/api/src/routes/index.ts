@@ -7,6 +7,7 @@ import { servicesRoutes } from "./services-routes";
 import { clientsRoutes } from "./clients-routes";
 import { callsRoutes } from "./calls-routes";
 import { extraServicesRoutes } from "./extra-services-routes";
+import { uploadsRoutes } from "./uploads-routes";
 
 import { ensureAuthenticated } from "@/middlewares/ensure-authenticated";
 
@@ -25,3 +26,4 @@ routes.use("/services", servicesRoutes);
 routes.use("/clients", clientsRoutes);
 routes.use("/calls", callsRoutes);
 routes.use("/extra-services", extraServicesRoutes);
+routes.use("/uploads", uploadsRoutes);
