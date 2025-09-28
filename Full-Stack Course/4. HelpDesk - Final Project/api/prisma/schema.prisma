@@ -21,8 +21,8 @@ enum UserRole {
 }
 
 enum CallStatus {
-  pending
   opened
+  progress
   closed
 }
 
@@ -73,8 +73,7 @@ model Call {
 
   title String @db.VarChar(100)
   description String
-  appointmentDate DateTime @map("appointment_date")
-  status CallStatus @default(pending)
+  status CallStatus @default(opened)
 
   serviceId String @map("service_id")
   service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
