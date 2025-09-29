@@ -4,7 +4,9 @@
   "main": "./src/server.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "build": "tsup",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "João Rodrigues",
@@ -33,6 +35,7 @@
     "supertest": "^7.1.4",
     "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
+    "tsup": "^8.5.0",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }
