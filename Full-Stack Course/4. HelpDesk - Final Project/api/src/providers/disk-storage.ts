@@ -35,4 +35,15 @@ export class DiskStorage {
 
     await fs.promises.unlink(filePath);
   }
+
+  async checkFileExists(filename: string) {
+    const filePath = path.resolve(uploadConfig.UPLOADS_FOLDER, filename);
+
+    try {
+      await fs.promises.access(filePath);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
 }
