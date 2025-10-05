@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 
 interface Props extends Button {
   type?: "primary" | "secondary"
+  htmlType?: "button" | "submit" | "reset"
 }
 
 export function Button({
@@ -11,7 +12,8 @@ export function Button({
   type = "primary",
   size = "big",
   iconAlt = "Icon Button",
-  onClick }: Props) {
+  onClick,
+  htmlType }: Props) {
 
   const iconSize = size === "big" ? 18 : 14;
 
@@ -26,8 +28,9 @@ export function Button({
       onClick={onClick}
       aria-label={text || iconAlt}
       title={text || iconAlt}
+      type={htmlType}
     >
-      <Icon size={iconSize} />
+      {Icon && <Icon size={iconSize} />}
       {text}
     </button>
   );

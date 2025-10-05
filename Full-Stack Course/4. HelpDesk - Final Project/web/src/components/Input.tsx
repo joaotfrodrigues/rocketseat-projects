@@ -10,9 +10,17 @@ type Props = {
   autoComplete?: string
   placeholder?: string
   error: boolean
+  htmlType?: "text" | "password"
 }
 
-export function Input({ label, id, helper, autoComplete, placeholder, error }: Props) {
+export function Input({
+  label,
+  id,
+  helper,
+  autoComplete,
+  placeholder,
+  error,
+  htmlType = "text" }: Props) {
   return (
     <div className={clsx("text-input flex flex-col", error ? "error" : "")}>
       <label htmlFor={id} className={clsx(
@@ -24,7 +32,7 @@ export function Input({ label, id, helper, autoComplete, placeholder, error }: P
 
       <input
         id={id}
-        type="text"
+        type={htmlType}
         autoComplete={autoComplete}
         placeholder={placeholder}
         className={clsx(
