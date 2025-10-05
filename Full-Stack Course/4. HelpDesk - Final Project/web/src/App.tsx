@@ -1,6 +1,12 @@
-import "./index.css";
+import { Routes } from "./routes";
+
+import { AuthProvider } from "./contexts/AuthContext";
 
 
 export function App() {
-  return <h1 className="">Hello World</h1>;
+  return (
+    <AuthProvider>
+      <Routes />
+    </AuthProvider>
+  );
 }
