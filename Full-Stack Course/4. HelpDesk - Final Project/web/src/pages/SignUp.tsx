@@ -5,7 +5,7 @@ import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
 
-export function SignIn() {
+export function SignUp() {
   const navigate = useNavigate();
 
   return (
@@ -13,14 +13,21 @@ export function SignIn() {
       <Container className="gap-8 sm:gap-10">
         <div>
           <h1 className="text-lg font-bold leading-[1.4] text-gray-200">
-            Acesse o portal
+            Crie sua conta
           </h1>
           <p className="text-xs font-normal leading-[1.4] text-gray-300">
-            Entre usando seu e-mail e senha cadastrados
+            Informe seu nome, e-mail e senha
           </p>
         </div>
 
         <fieldset className="flex flex-col gap-4">
+          <Input
+            label="Nome"
+            id="name"
+            placeholder="Digite o nome completo"
+            error={false}
+          />
+
           <Input
             label="E-mail"
             id="email"
@@ -31,30 +38,31 @@ export function SignIn() {
           <Input
             label="Senha"
             id="password"
-            htmlType="password"
             placeholder="Digite sua senha"
+            helper="Mínimo de 6 dígitos"
+            htmlType="password"
             error={false}
           />
         </fieldset>
 
-        <Button htmlType="submit" text="Entrar" />
+        <Button htmlType="submit" text="Cadastrar"/>
       </Container>
 
       <Container className="gap-5 sm:gap-6">
         <div>
           <h2 className="text-md font-bold leading-[1.4] text-gray-200">
-            Ainda não tem uma conta?
+            Já tem uma conta?
           </h2>
           <p className="text-xs font-normal leading-[1.4] text-gray-300">
-            Cadastre agora mesmo
+            Entre agora mesmo
           </p>
         </div>
 
         <Button
           htmlType="button"
-          text="Criar Conta"
+          text="Acessar conta"
           type="secondary"
-          onClick={() => navigate("/signup")}
+          onClick={() => navigate("/")}
         />
       </Container>
     </form>
