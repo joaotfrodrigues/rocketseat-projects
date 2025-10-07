@@ -40,6 +40,7 @@ export function NavbarMobile() {
         avatarMobile={true}
         className="ml-auto cursor-pointer"
         onClick={() => setOptionsVisibility(!optionsVisibility)}
+        avatar={auth.session!.user.avatar}
       />
 
       <Options size="big" show={optionsVisibility} ref={menuRef} />

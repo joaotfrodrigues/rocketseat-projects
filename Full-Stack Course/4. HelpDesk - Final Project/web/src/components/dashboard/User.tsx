@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { clsx } from "clsx";
-import { useAuth } from "../../hooks/useAuth";
 import { BASE_URL } from "../../services/api";
 
 import type { HTMLAttributes } from "react";
@@ -10,12 +9,12 @@ type Props = {
   name: string;
   email?: string;
   size?: "big" | "medium" | "small" | "xsmall";
+  avatar?: string | null
   avatarMobile?: boolean
 } & HTMLAttributes<HTMLDivElement>;
 
-export function User({ name, email, size = "small", avatarMobile = false, ...rest }: Props) {
-  const auth = useAuth();
-  const avatarUrl = BASE_URL + "/uploads/" + auth.session!.user.avatar;
+export function User({ name, email, size = "small", avatar, avatarMobile = false, ...rest }: Props) {
+  const avatarUrl = BASE_URL + "/uploads/" + avatar;
 
   const [imgError, setImgError] = useState(false);
 
@@ -49,7 +48,7 @@ export function User({ name, email, size = "small", avatarMobile = false, ...res
       "flex items-center",
       size === "big" ? "gap-3" : "gap-2"
     )} {...rest}>
-      {!imgError && auth.session!.user.avatar ? (
+      {!imgError && avatar ? (
         <img
           src={avatarUrl}
           alt={name}
@@ -72,7 +71,10 @@ export function User({ name, email, size = "small", avatarMobile = false, ...res
         avatarMobile ? "hidden sm:flex" : "flex"
       )}>
         <span
-          className="text-sm font-normal leading-[1.4] text-gray-600 truncate"
+          className={clsx(
+            "text-sm font-normal leading-[1.4] truncate",
+            size === "small" || size === "xsmall" ? "text-gray-200" : "text-gray-600"
+          )}
           title={name}
         >
           {name}

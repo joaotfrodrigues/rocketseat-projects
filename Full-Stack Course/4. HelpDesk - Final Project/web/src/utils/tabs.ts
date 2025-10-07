@@ -9,5 +9,7 @@ export const tabs = {
     { title: "Serviços", route: "/services", icon: Wrench }
   ],
   "technician": [],
-  "client": []
+  "client": [
+    { title: "Chamados", route: "/", icon: ClipboardList },
+  ]
 }

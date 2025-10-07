@@ -13,7 +13,7 @@ export function DashboardLayout() {
 
       <section className={clsx(
         "pt-7 pb-6 px-6 sm:pt-13 sm:pb-12 sm:px-12",
-        "bg-gray-600 flex-grow",
+        "bg-gray-600 flex-grow flex flex-col gap-4 sm:gap-6",
         "rounded-t-[20px] sm:rounded-t-[0] sm:rounded-tl-[20px]"
       )}>
         <Outlet />

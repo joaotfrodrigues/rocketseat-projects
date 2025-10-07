@@ -16,7 +16,6 @@ export function SidebarLogo() {
       break;
     case "admin":
       role = "admin";
-      break;
   }
 
   return (

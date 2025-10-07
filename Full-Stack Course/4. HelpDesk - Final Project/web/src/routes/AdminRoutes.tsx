@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router";
 
 import { DashboardLayout } from "../layouts/Dashboard";
 
-import { Calls } from "../pages/admin/Calls";
+import { Calls } from "../pages/Calls";
 import { NotFound } from "../pages/NotFound";
 
 

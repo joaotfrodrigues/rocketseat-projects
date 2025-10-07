@@ -24,7 +24,12 @@ export function SidebarUser({ visibility, onClick }: Props) {
       )}
       onClick={onClick}
     >
-      <User name={name} email={email} size="medium" />
+      <User
+        name={name}
+        email={email}
+        size="medium"
+        avatar={auth.session!.user.avatar}
+      />
     </div>
   );
 }
