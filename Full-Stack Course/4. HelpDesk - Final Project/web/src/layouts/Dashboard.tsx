@@ -1,0 +1,23 @@
+import { Outlet } from "react-router";
+import { clsx } from "clsx";
+
+import { DashboardSidebar } from "../components/dashboard/sidebar/Sidebar";
+import { NavbarMobile } from "../components/dashboard/NavbarMobile";
+
+
+export function DashboardLayout() {
+  return (
+    <main className="min-h-screen bg-gray-100 sm:pt-3 flex flex-col sm:flex-row">
+      <DashboardSidebar />
+      <NavbarMobile />
+
+      <section className={clsx(
+        "pt-7 pb-6 px-6 sm:pt-13 sm:pb-12 sm:px-12",
+        "bg-gray-600 flex-grow",
+        "rounded-t-[20px] sm:rounded-t-[0] sm:rounded-tl-[20px]"
+      )}>
+        <Outlet />
+      </section>
+    </main>
+  );
+}

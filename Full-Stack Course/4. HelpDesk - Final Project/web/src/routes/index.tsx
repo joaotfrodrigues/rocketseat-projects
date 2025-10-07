@@ -5,6 +5,8 @@ import { useAuth } from "../hooks/useAuth";
 import { Loading } from "../components/Loading";
 
 import { AuthRoutes } from "./AuthRoutes";
+import { AdminRoutes } from "./AdminRoutes";
+import { ClientRoutes } from "./ClientRoutes";
 
 
 export function Routes() {
@@ -13,11 +15,11 @@ export function Routes() {
   function Route() {
     switch (session?.user.role) {
       case "client":
-        return "";
+        return <ClientRoutes />
       case "technician":
         return "";
       case "admin":
-        return "";
+        return <AdminRoutes />
       default:
         return <AuthRoutes />
     }

@@ -1,15 +1,58 @@
+import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { z } from "zod";
+import { AxiosError } from "axios";
+
+import { api } from "../services/api";
+
+import { useAuth } from "../hooks/useAuth";
 
 import { Container } from "../components/Container";
 import { Button } from "../components/Button";
 import { Input } from "../components/Input";
 
 
+type FormData = {
+  email: string
+  password: string
+}
+
+const schema = z.object({
+  email: z.email("E-mail inválido"),
+  password: z.string()
+});
+
 export function SignIn() {
+  const { control, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
+    defaultValues: {
+      email: "",
+      password: ""
+    },
+    resolver: zodResolver(schema)
+  });
+
+  const [serverError, setServerError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const auth = useAuth();
+
+  async function onSubmit(data: FormData) {
+    try {
+      const response = await api.post("/sessions", data);
+
+      auth.save(response.data);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        setServerError(error.response?.data.message);
+      }
+
+      setServerError("Credenciais inválidas");
+    }
+  }
 
   return (
-    <form className="flex flex-col gap-3">
+    <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
       <Container className="gap-8 sm:gap-10">
         <div>
           <h1 className="text-lg font-bold leading-[1.4] text-gray-200">
@@ -21,23 +64,43 @@ export function SignIn() {
         </div>
 
         <fieldset className="flex flex-col gap-4">
-          <Input
-            label="E-mail"
-            id="email"
-            placeholder="exemplo@mail.com"
-            error={false}
+          <Controller
+            control={control}
+            name="email"
+            render={({ field }) => (
+              <Input
+                label="E-mail"
+                id="email"
+                placeholder="exemplo@mail.com"
+                error={errors.email?.message != null}
+                helper={errors.email?.message ?? ""}
+                {...field}
+              />
+            )}
           />
 
-          <Input
-            label="Senha"
-            id="password"
-            htmlType="password"
-            placeholder="Digite sua senha"
-            error={false}
+          <Controller
+            control={control}
+            name="password"
+            render={({ field }) => (
+              <Input
+                label="Senha"
+                id="password"
+                htmlType="password"
+                placeholder="Digite sua senha"
+                error={errors.password?.message != null}
+                helper={errors.password?.message ?? ""}
+                {...field}
+              />
+            )}
           />
+
+          {serverError && (
+            <p className="text-sm text-center text-red-500 font-medium">{serverError}</p>
+          )}
         </fieldset>
 
-        <Button htmlType="submit" text="Entrar" />
+        <Button htmlType="submit" text="Entrar" disabled={isSubmitting} />
       </Container>
 
       <Container className="gap-5 sm:gap-6">

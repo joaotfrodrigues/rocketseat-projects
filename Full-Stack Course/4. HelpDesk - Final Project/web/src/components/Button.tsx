@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 interface Props extends Button {
   type?: "primary" | "secondary"
   htmlType?: "button" | "submit" | "reset"
+  disabled?: boolean
 }
 
 export function Button({
@@ -13,22 +14,24 @@ export function Button({
   size = "big",
   iconAlt = "Icon Button",
   onClick,
-  htmlType }: Props) {
+  htmlType,
+  disabled }: Props) {
 
   const iconSize = size === "big" ? 18 : 14;
 
   return (
     <button className={clsx(
-      "inline-flex items-center justify-center gap-[8px] rounded-[5px] cursor-pointer transition font-normal leading-[1.4]",
+      "inline-flex items-center justify-center gap-[8px] rounded-[5px] cursor-pointer transition font-normal leading-[1.4] disabled:cursor-wait",
       text ? "px-[16px] py-[10px]" : "p-[11px]",
-      type === "primary" ? "bg-gray-200 text-gray-600 hover:bg-gray-100"
-        : "bg-gray-500 text-gray-200 hover:bg-gray-400 hover:text-gray-100",
+      type === "primary" ? "bg-gray-200 text-gray-600 hover:bg-gray-100 disabled:bg-gray-300"
+        : "bg-gray-500 text-gray-200 hover:bg-gray-400 hover:text-gray-100 disabled:bg-gray-600",
       size === "big" ? "text-sm" : "text-xs"
     )}
       onClick={onClick}
       aria-label={text || iconAlt}
       title={text || iconAlt}
       type={htmlType}
+      disabled={disabled}
     >
       {Icon && <Icon size={iconSize} />}
       {text}

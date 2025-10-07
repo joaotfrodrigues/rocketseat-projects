@@ -30,7 +30,7 @@ export function Link({
       )}
       onClick={onClick}
     >
-      <Icon size={iconSize} />
+      {Icon && <Icon size={iconSize} />}
       {text}
     </a>
   );
