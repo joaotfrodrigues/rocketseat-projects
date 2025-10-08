@@ -6,14 +6,22 @@ import type { HTMLAttributes } from "react";
 
 
 type Props = {
-  name: string;
+  name?: string;
   email?: string;
   size?: "big" | "medium" | "small" | "xsmall";
   avatar?: string | null
   avatarMobile?: boolean
+  darkMode?: boolean
 } & HTMLAttributes<HTMLDivElement>;
 
-export function User({ name, email, size = "small", avatar, avatarMobile = false, ...rest }: Props) {
+export function User({
+  name,
+  email,
+  size = "small",
+  avatar,
+  avatarMobile = false,
+  darkMode = false,
+  ...rest }: Props) {
   const avatarUrl = BASE_URL + "/uploads/" + avatar;
 
   const [imgError, setImgError] = useState(false);
@@ -25,6 +33,7 @@ export function User({ name, email, size = "small", avatar, avatarMobile = false
     return (first + last).toUpperCase();
   }
 
+  if (!name) return "";
   const initials = getInitials(name);
 
   let dimension;
@@ -72,8 +81,9 @@ export function User({ name, email, size = "small", avatar, avatarMobile = false
       )}>
         <span
           className={clsx(
-            "text-sm font-normal leading-[1.4] truncate",
-            size === "small" || size === "xsmall" ? "text-gray-200" : "text-gray-600"
+            "text-sm font-normal leading-[1.4] w-fit truncate",
+            darkMode ? "text-gray-200" :
+              size === "small" || size === "xsmall" ? "text-gray-200" : "text-gray-600"
           )}
           title={name}
         >
@@ -82,7 +92,7 @@ export function User({ name, email, size = "small", avatar, avatarMobile = false
 
         {email &&
           <span
-            className="text-xs font-normal leading-[1.4] text-gray-400 truncate"
+            className="text-xs font-normal leading-[1.4] text-gray-400 w-fit truncate"
             title={email}
           >
             {email}

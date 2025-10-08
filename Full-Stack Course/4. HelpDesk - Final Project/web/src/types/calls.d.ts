@@ -1,20 +1,39 @@
+type Client = {
+  name: string
+  avatar: string | null
+}
+
+type Service = {
+  title: string
+  price: number
+}
+
+type Technician = {
+  name: string
+  email: string | undefined
+  avatar: string | null
+}
+
 type Call = {
   id: string
   title: string
   status: "opened" | "progress" | "closed"
-  service: {
-    title: string
-    price: number
-  }
-  client: {
-    name: string
-    avatar: string | null
-  }
-  technician: {
-    name: string
-    avatar: string | null
-  }
+  service: Service
+  client: Client
+  technician: Technician
   updatedAt: string
+}
+
+type ExtraService = {
+  id: string
+  description: string
+  price: number
+}
+
+type CallShow = Call & {
+  description: string
+  createdAt: string
+  extraServices: ExtraService[]
 }
 
 type Calls = {

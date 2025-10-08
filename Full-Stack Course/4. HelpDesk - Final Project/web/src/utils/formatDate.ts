@@ -1,4 +1,6 @@
-export function formatDate(date: string) {
+export function formatDate(date?: string) {
+  if (!date) return "";
+
   return new Date(date).toLocaleString("pt-PT", {
     timeZone: "Europe/Lisbon",
     year: "2-digit",

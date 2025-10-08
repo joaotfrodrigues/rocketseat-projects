@@ -42,13 +42,14 @@ export function BurgerMenu() {
           )}
         >
           <span className="text-xxs font-bold leading-[1.4] uppercase text-gray-400">Menu</span>
-          <div>
+          <div className="flex flex-col gap-1">
             {tabs[auth.session!.user.role].map((item, index) => (
               <SidebarItem
                 key={index}
                 title={item.title}
                 route={item.route}
                 Icon={item.icon}
+                onClick={() => setIsOpen(false)}
               />
             ))}
           </div>

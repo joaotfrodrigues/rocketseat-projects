@@ -3,11 +3,13 @@ import { clsx } from "clsx";
 
 
 type Props = {
-  status: "opened" | "progress" | "closed"
+  status?: "opened" | "progress" | "closed"
   responsive?: boolean
 }
 
 export function Status({ status, responsive = false }: Props) {
+  if (!status) return "";
+
   let statusText;
   let statusColor;
   let statusBackground;
@@ -36,12 +38,14 @@ export function Status({ status, responsive = false }: Props) {
   }
 
   return (
-    <span className={clsx(
-      "px-2 py-[6px] rounded-[999px] flex items-center justify-center gap-[6px]",
-      "w-fit text-xs font-bold leading-[1.4]",
-      statusColor,
-      statusBackground
-    )}>
+    <span
+      title={statusText}
+      className={clsx(
+        "px-2 py-[6px] rounded-[999px] flex items-center justify-center gap-[6px]",
+        "w-fit text-xs font-bold leading-[1.4]",
+        statusColor,
+        statusBackground
+      )}>
       <Icon size={16} />
       <span className={clsx(
         responsive ? "hidden sm:inline" : ""

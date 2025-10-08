@@ -8,10 +8,10 @@ type Props = {
   title: string
   route: string
   Icon: LucideIcon
-
+  onClick?: () => void
 }
 
-export function SidebarItem({ title, route, Icon }: Props) {
+export function SidebarItem({ title, route, Icon, onClick }: Props) {
   return (
     <NavLink
       to={route}
@@ -23,6 +23,7 @@ export function SidebarItem({ title, route, Icon }: Props) {
           ? "bg-blue-dark text-gray-600"
           : "hover:bg-gray-200 hover:text-gray-500"
       )}
+      onClick={onClick}
     >
       <Icon size={20} />
       {title}

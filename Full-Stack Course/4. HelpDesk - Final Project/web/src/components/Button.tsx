@@ -5,6 +5,7 @@ interface Props extends Button {
   type?: "primary" | "secondary"
   htmlType?: "button" | "submit" | "reset"
   disabled?: boolean
+  className?: string
 }
 
 export function Button({
@@ -15,7 +16,8 @@ export function Button({
   iconAlt = "Icon Button",
   onClick,
   htmlType = "button",
-  disabled }: Props) {
+  disabled,
+  className = "" }: Props) {
 
   const iconSize = size === "big" ? 18 : 14;
 
@@ -25,7 +27,8 @@ export function Button({
       text ? "px-[16px] py-[10px]" : "p-[7px]",
       type === "primary" ? "bg-gray-200 text-gray-600 hover:bg-gray-100 disabled:bg-gray-300"
         : "bg-gray-500 text-gray-200 hover:bg-gray-400 hover:text-gray-100 disabled:bg-gray-600",
-      size === "big" ? "text-sm" : "text-xs"
+      size === "big" ? "text-sm" : "text-xs",
+      className
     )}
       onClick={onClick}
       aria-label={text || iconAlt}
