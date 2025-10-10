@@ -61,8 +61,7 @@ export class UsersController {
         .trim()
         .email({ message: "O campo e-mail é obrigatório" })
         .toLowerCase(),
-      filename: z.string()
-        .min(20, { message: "Nome do ficheiro demasiado curto" })
+      filename: z.string().nullable().optional().default(null)
     });
 
     const { name, email, filename: avatar } = bodySchema.parse(request.body);
@@ -78,11 +77,13 @@ export class UsersController {
       throw new AppError("E-mail já está em uso");
     }
 
-    const diskStorage = new DiskStorage();
-    const avatarExists = await diskStorage.checkFileExists(avatar);
+    if (avatar) {
+      const diskStorage = new DiskStorage();
+      const avatarExists = await diskStorage.checkFileExists(avatar);
 
-    if (!avatarExists) {
-      throw new AppError("Ficheiro não encontrado", 404);
+      if (!avatarExists) {
+        throw new AppError("Ficheiro não encontrado", 404);
+      }
     }
 
     const user = await prisma.user.update({

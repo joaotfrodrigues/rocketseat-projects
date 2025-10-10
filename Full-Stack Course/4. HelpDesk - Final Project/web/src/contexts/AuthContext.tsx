@@ -11,6 +11,7 @@ type AuthContext = {
   session: null | UserAPIResponse
   save: (data: UserAPIResponse) => void
   remove: () => void
+  refresh: (updatedUser: Partial<UserAPIResponse["user"]>) => void
 }
 
 const LOCAL_STORAGE_KEY = "@helpdesk";
@@ -55,12 +56,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsLoading(false);
   }
 
+  function refresh(updatedUser: Partial<UserAPIResponse["user"]>) {
+    if (!session) return;
+
+    const newUser = { ...session.user, ...updatedUser };
+
+    setSession({
+      ...session,
+      user: newUser,
+    });
+
+    localStorage.setItem(`${LOCAL_STORAGE_KEY}:user`, JSON.stringify(newUser));
+  }
+
   useEffect(() => {
     loadUser();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isLoading, session, save, remove }}>
+    <AuthContext.Provider value={{ isLoading, session, save, remove, refresh }}>
       {children}
     </AuthContext.Provider>
   );

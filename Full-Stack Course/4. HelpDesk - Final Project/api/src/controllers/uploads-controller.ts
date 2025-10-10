@@ -4,6 +4,7 @@ import { z, ZodError } from "zod";
 import uploadConfig from "@/configs/upload";
 import { DiskStorage } from "@/providers/disk-storage";
 import { AppError } from "@/utils/app-error";
+import { prisma } from "@/database/prisma";
 
 
 export class UploadsController {
@@ -40,5 +41,35 @@ export class UploadsController {
 
       throw error;
     }
+  }
+
+  async remove(request: Request, response: Response) {
+    const diskStorage = new DiskStorage();
+
+    const user = await prisma.user.findFirst({
+      where: { id: request.user!.id }
+    });
+
+    if (!user) {
+      throw new AppError("Utilizador não encontrado", 404);
+    }
+
+    if (!user.avatar) {
+      throw new AppError("Avatar não encontrado", 404);
+    }
+
+    const avatarExists = await diskStorage.checkFileExists(user.avatar);
+    if (!avatarExists) {
+      throw new AppError("Avatar não encontrado", 404);
+    }
+
+    await diskStorage.deleteFile(user.avatar, "upload");
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: { avatar: null },
+    });
+
+    return response.status(200).json({ message: "Avatar removido com sucesso" });
   }
 }

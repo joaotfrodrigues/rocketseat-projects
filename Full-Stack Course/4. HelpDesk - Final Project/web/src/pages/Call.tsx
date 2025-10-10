@@ -10,8 +10,6 @@ import { extraServiceSchema } from "../utils/extraServiceSchema";
 
 import { Link } from "../components/Link";
 import { Button } from "../components/Button";
-import { Modal } from "../components/Modal";
-import { Input } from "../components/Input";
 
 import { ExtraServicesContainer } from "../components/dashboard/call/ExtraServices";
 import { CallDetails } from "../components/dashboard/call/CallDetails";

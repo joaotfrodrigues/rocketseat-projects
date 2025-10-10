@@ -14,3 +14,4 @@ const upload = multer(uploadConfig.MULTER);
 uploadsRoutes.use(verifyUserAuthorization(["client", "technician", "admin"]));
 
 uploadsRoutes.post("/", upload.single("file"), uploadsController.create);
+uploadsRoutes.delete("/", uploadsController.remove);
