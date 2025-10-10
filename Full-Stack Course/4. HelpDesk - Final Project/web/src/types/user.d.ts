@@ -1,4 +1,4 @@
-type UserAPIRole = "client" | "technician" | "admin";
+type UserRole = "client" | "technician" | "admin";
 
 type UserAPIResponse = {
   token: string
@@ -6,7 +6,7 @@ type UserAPIResponse = {
     id: string
     name: string
     email: string
-    role: UserAPIRole
+    role: UserRole
     avatar: string
     schedules: string
     createdAt: string

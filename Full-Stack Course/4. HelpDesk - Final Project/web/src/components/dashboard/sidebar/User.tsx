@@ -1,17 +1,14 @@
 import { clsx } from "clsx";
 
 import { useAuth } from "../../../hooks/useAuth";
+import { useOptions } from "../../../hooks/useOptions";
 
 import { User } from "../User";
 
 
-type Props = {
-  visibility: boolean
-  onClick: () => void
-}
-
-export function SidebarUser({ visibility, onClick }: Props) {
+export function SidebarUser() {
   const auth = useAuth();
+  const options = useOptions();
 
   const name = auth.session!.user.name;
   const email = auth.session!.user.email;
@@ -20,9 +17,9 @@ export function SidebarUser({ visibility, onClick }: Props) {
     <div
       className={clsx(
         "py-5 px-4 cursor-pointer transition-colors hover:bg-gray-200",
-        visibility ? "bg-gray-200" : "hover:bg-gray-200"
+        options?.optionsOpen ? "bg-gray-200" : "hover:bg-gray-200"
       )}
-      onClick={onClick}
+      onClick={() => options?.setOptionsOpen(!options?.optionsOpen)}
     >
       <User
         name={name}

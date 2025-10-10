@@ -1,12 +1,18 @@
 import { Routes } from "./routes";
 
 import { AuthProvider } from "./contexts/AuthContext";
+import { ProfileProvider } from "./contexts/ProfileContext";
+import { OptionsProvider } from "./contexts/OptionsContext";
 
 
 export function App() {
   return (
     <AuthProvider>
-      <Routes />
+      <ProfileProvider>
+        <OptionsProvider>
+          <Routes />
+        </OptionsProvider>
+      </ProfileProvider>
     </AuthProvider>
   );
 }

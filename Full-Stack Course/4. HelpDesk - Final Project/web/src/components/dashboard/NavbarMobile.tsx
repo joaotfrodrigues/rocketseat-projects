@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 import { useAuth } from "../../hooks/useAuth";
+import { useOptions } from "../../hooks/useOptions";
 
 import { SidebarLogo } from "./sidebar/Logo";
 import { BurgerMenu } from "./BurgerMenu";
@@ -9,21 +10,11 @@ import { Options } from "./Options";
 
 
 export function NavbarMobile() {
-  const [optionsVisibility, setOptionsVisibility] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const auth = useAuth();
+  const options = useOptions();
 
-  // Close the menu if clicked outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setOptionsVisibility(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
 
   const name = auth.session!.user.name;
 
@@ -39,11 +30,14 @@ export function NavbarMobile() {
         size="big"
         avatarMobile={true}
         className="ml-auto cursor-pointer"
-        onClick={() => setOptionsVisibility(!optionsVisibility)}
+        onClick={() => options?.setOptionsOpen(!options?.optionsOpen)}
         avatar={auth.session!.user.avatar}
       />
 
-      <Options size="big" show={optionsVisibility} ref={menuRef} />
+      <Options
+        size="big"
+        ref={menuRef}
+      />
     </nav>
   );
 }

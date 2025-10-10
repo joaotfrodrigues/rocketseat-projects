@@ -1,5 +1,7 @@
 import { clsx } from "clsx";
 
+import type { ReactNode } from "react";
+
 import { CircleAlert } from "lucide-react";
 
 
@@ -12,6 +14,9 @@ type Props = {
   error: boolean
   htmlType?: "text" | "password"
   onChange?: () => any
+  disabled?: boolean
+  value?: string
+  children?: ReactNode
 }
 
 export function Input({
@@ -22,6 +27,9 @@ export function Input({
   placeholder,
   error,
   htmlType = "text",
+  disabled,
+  value,
+  children,
   ...rest }: Props) {
   return (
     <div className={clsx("text-input flex flex-col", error ? "error" : "")}>
@@ -32,18 +40,23 @@ export function Input({
         {label}
       </label>
 
-      <input
-        id={id}
-        type={htmlType}
-        autoComplete={autoComplete}
-        placeholder={placeholder}
-        className={clsx(
-          "py-[8px] text-md placeholder-gray-400 font-normal leading-[1.4] outline-none border-b border-gray-500",
-          !error && "focus:border-blue-base")
-        }
+      <div className="w-full relative">
+        <input
+          id={id}
+          type={htmlType}
+          autoComplete={autoComplete}
+          placeholder={placeholder}
+          value={value}
+          disabled={disabled}
+          className={clsx(
+            "w-full py-[8px] text-md placeholder-gray-400 font-normal leading-[1.4] outline-none border-b border-gray-500",
+            !error && "focus:border-blue-base")
+          }
+          {...rest}
+        />
 
-        {...rest}
-      />
+        {children}
+      </div>
 
       {
         helper &&

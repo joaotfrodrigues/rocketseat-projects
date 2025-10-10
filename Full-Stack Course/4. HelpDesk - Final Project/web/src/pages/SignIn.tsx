@@ -2,12 +2,11 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { z } from "zod";
 import { AxiosError } from "axios";
 
 import { api } from "../services/api";
-
 import { useAuth } from "../hooks/useAuth";
+import { loginSchema } from "../utils/loginSchema";
 
 import { Container } from "../components/Container";
 import { Button } from "../components/Button";
@@ -19,18 +18,13 @@ type FormData = {
   password: string
 }
 
-const schema = z.object({
-  email: z.email("E-mail inválido"),
-  password: z.string()
-});
-
 export function SignIn() {
-  const { control, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     defaultValues: {
       email: "",
       password: ""
     },
-    resolver: zodResolver(schema)
+    resolver: zodResolver(loginSchema)
   });
 
   const [serverError, setServerError] = useState<string | null>(null);
@@ -39,6 +33,8 @@ export function SignIn() {
 
   async function onSubmit(data: FormData) {
     try {
+      reset({ email: data.email, password: "" });
+
       const response = await api.post("/sessions", data);
 
       auth.save(response.data);

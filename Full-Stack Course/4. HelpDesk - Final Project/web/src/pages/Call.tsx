@@ -1,22 +1,42 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Clock2, CircleCheckBig } from "lucide-react";
 
 import { useAuth } from "../hooks/useAuth";
 import { api } from "../services/api";
-import { formatDate } from "../utils/formatDate";
+import { extraServiceSchema } from "../utils/extraServiceSchema";
 
 import { Link } from "../components/Link";
 import { Button } from "../components/Button";
-import { Container } from "../components/Container";
-import { Status } from "../components/dashboard/Status";
-import { InfoSection } from "../components/dashboard/InfoSection";
-import { User } from "../components/dashboard/User";
-import { Price } from "../components/dashboard/Price";
+import { Modal } from "../components/Modal";
+import { Input } from "../components/Input";
 
+import { ExtraServicesContainer } from "../components/dashboard/call/ExtraServices";
+import { CallDetails } from "../components/dashboard/call/CallDetails";
+import { CallCart } from "../components/dashboard/call/CallCart";
+import { ExtraServiceModal } from "../components/dashboard/call/ExtraServiceModal";
+
+
+type FormData = {
+  description: string
+  price: string
+}
 
 export function Call() {
   const [call, setCall] = useState<CallShow | null>(null);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+  const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
+    defaultValues: {
+      description: "",
+      price: ""
+    },
+    resolver: zodResolver(extraServiceSchema)
+  });
+
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const auth = useAuth();
   const navigate = useNavigate();
@@ -31,6 +51,12 @@ export function Call() {
       navigate("/");
     }
   }
+
+  useEffect(() => {
+    if (params.id) {
+      fetchCall(params.id);
+    }
+  }, [params.id]);
 
   async function updateStatus(id?: string, newStatus?: "progress" | "closed") {
     if (!id || !newStatus) return "";
@@ -49,11 +75,33 @@ export function Call() {
     }
   }
 
-  useEffect(() => {
-    if (params.id) {
-      fetchCall(params.id);
+  async function deleteAdicionalService(id: string) {
+    try {
+      await api.delete(`/extra-services/${id}`);
+
+      if (params.id) fetchCall(params.id);
+    } catch (error) {
+      console.log(error);
+
+      alert("Não foi possível remover o serviço adicional");
     }
-  }, [params.id]);
+  }
+
+  async function onSubmit(data: FormData) {
+    try {
+      data.price = data.price.replace("€", "");
+
+      await api.post(
+        `/extra-services/${params.id}`, data);
+
+      setModalOpen(false);
+      reset();
+
+      if (params.id) fetchCall(params.id);
+    } catch (error) {
+      setServerError("Erro ao criar serviço adicional");
+    }
+  }
 
   return (
     <>
@@ -76,7 +124,7 @@ export function Call() {
             text="Iniciar atendimento"
             type="primary"
             className="flex-1 md:flex-initial self-end w-full sm:w-auto"
-            onClick={() => updateStatus(params.id, "progress")}
+            onClick={() => updateStatus({ id: params.id, newStatus: "progress" })}
           />
         }
 
@@ -87,100 +135,42 @@ export function Call() {
             text="Encerrar"
             type="secondary"
             className="flex-1 md:flex-initial self-end w-full sm:w-auto"
-            onClick={() => updateStatus(params.id, "closed")}
+            onClick={() => updateStatus({ id: params.id, newStatus: "closed" })}
           />
         }
       </div>
 
       <div className="flex justify-center items-start gap-4 lg:gap-6 flex-col lg:flex-row">
-        <Container className="gap-5 w-full lg:max-w-[480px]">
-          <div className="gap-[2px]">
-            <div className="flex items-center">
-              <span className="mr-auto text-xs font-normal leading-[1.4] text-gray-300">{call?.id.split("-")[0]}</span>
-              <Status status={call?.status} />
-            </div>
-            <h2 className="text-md font-bold leading-[1.4] text-gray-200">{call?.title}</h2>
-          </div >
-
-          <InfoSection
-            title="Descrição"
-            description={call?.description}
+        <div className="gap-4 sm:gap-3 flex flex-col w-full lg:max-w-[480px]">
+          <CallDetails
+            role={auth.session!.user.role}
+            call={call!}
           />
 
-          <InfoSection
-            title="Categoria"
-            description={call?.service.title}
+          <ExtraServicesContainer
+            call={call!}
+            deleteAdicionalService={deleteAdicionalService}
+            openModal={() => setModalOpen(true)}
           />
+        </div>
 
-          <div className="flex gap-8">
-            <InfoSection
-              title="Criado em"
-              description={formatDate(call?.createdAt)}
-            />
-
-            <InfoSection
-              title="Atualizado em"
-              description={formatDate(call?.updatedAt)}
-            />
-          </div>
-
-          {auth.session!.user.role !== "client" &&
-            <InfoSection title="Cliente">
-              <User
-                name={call?.client.name}
-                size="xsmall"
-                avatar={call?.client.avatar}
-              />
-            </InfoSection>
-          }
-        </Container >
-
-        <Container className="gap-8 w-full lg:max-w-[296px]">
-          <div>
-            <InfoSection title="Técnico responsável">
-              <User
-                name={call?.technician.name}
-                email={call?.technician.email}
-                size="medium"
-                darkMode={true}
-                avatar={call?.technician.avatar}
-              />
-            </InfoSection>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <InfoSection title="Valores">
-              <Price
-                title="Preço base"
-                price={call?.service.price}
-              />
-            </InfoSection>
-
-            <InfoSection title="Adicionais">
-              <div className="flex flex-col gap-[2px]">
-                {call?.extraServices.map((call, index) => (
-                  <Price
-                    title={call.description}
-                    price={call.price}
-                    key={index}
-                  />
-                ))}
-              </div>
-            </InfoSection>
-
-            <div className="pt-3 border-t border-gray-500">
-              <Price
-                title="Total"
-                price={call?.extraServices.reduce(
-                  (acc, cur) => acc + cur.price
-                  , call?.service.price
-                )}
-                type="big"
-              />
-            </div>
-          </div>
-        </Container>
+        <CallCart
+          role={auth.session!.user.role}
+          call={call!}
+        />
       </div >
+
+      {modalOpen &&
+        <ExtraServiceModal
+          closeModal={() => setModalOpen(false)}
+          onSubmit={handleSubmit(onSubmit)}
+          isSubmitting={isSubmitting}
+          control={control}
+          errors={errors}
+          serverError={serverError}
+        />
+      }
     </>
   );
 }
+

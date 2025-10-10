@@ -7,6 +7,7 @@ import { Loading } from "../components/Loading";
 import { AuthRoutes } from "./AuthRoutes";
 import { AdminRoutes } from "./AdminRoutes";
 import { ClientRoutes } from "./ClientRoutes";
+import { TechnicianRoutes } from "./TechnicianRoutes";
 
 
 export function Routes() {
@@ -17,7 +18,7 @@ export function Routes() {
       case "client":
         return <ClientRoutes />
       case "technician":
-        return "";
+        return <TechnicianRoutes />
       case "admin":
         return <AdminRoutes />
       default:

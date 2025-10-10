@@ -8,7 +8,7 @@ import type { HTMLAttributes } from "react";
 type Props = {
   name?: string;
   email?: string;
-  size?: "big" | "medium" | "small" | "xsmall";
+  size?: "xbig" | "big" | "medium" | "small" | "xsmall";
   avatar?: string | null
   avatarMobile?: boolean
   darkMode?: boolean
@@ -22,7 +22,13 @@ export function User({
   avatarMobile = false,
   darkMode = false,
   ...rest }: Props) {
-  const avatarUrl = BASE_URL + "/uploads/" + avatar;
+
+  let avatarUrl;
+  if (avatar && avatar.includes("http")) {
+    avatarUrl = avatar;
+  } else {
+    avatarUrl = BASE_URL + "/uploads/" + avatar;
+  }
 
   const [imgError, setImgError] = useState(false);
 
@@ -38,6 +44,9 @@ export function User({
 
   let dimension;
   switch (size) {
+    case "xbig":
+      dimension = "w-12 h-12 text-sm font-normal leading-[1.2]";
+      break;
     case "big": //40px
       dimension = "w-10 h-10 text-sm font-normal leading-[1.2]";
       break;
@@ -77,7 +86,7 @@ export function User({
 
       <div className={clsx(
         "justify-center flex-col gap-0 flex-1 min-w-0",
-        avatarMobile ? "hidden sm:flex" : "flex"
+        avatarMobile ? "hidden" : "flex"
       )}>
         <span
           className={clsx(

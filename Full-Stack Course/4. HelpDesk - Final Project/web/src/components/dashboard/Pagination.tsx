@@ -15,7 +15,7 @@ export function Pagination({ current, total, onNext, onPrevious }: Props) {
       <div className="flex flex-1 items-center justify-center gap-4">
         <Button
           Icon={ArrowLeft}
-          iconAlt="Ícone de voltar"
+          iconAlt="Página anterior"
           htmlType="button"
           onClick={onPrevious}
           disabled={current === 1}
@@ -29,7 +29,7 @@ export function Pagination({ current, total, onNext, onPrevious }: Props) {
 
         <Button
           Icon={ArrowRight}
-          iconAlt="Ícone de avançar"
+          iconAlt="Próxima página"
           htmlType="button"
           onClick={onNext}
           disabled={current === total}

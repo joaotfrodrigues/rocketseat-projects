@@ -11,7 +11,7 @@ export function Link({
   text = "",
   iconAlt = "",
   size = "big",
-  href = "",
+  href,
   onClick,
   newWindow = false }: Props) {
 
@@ -24,7 +24,7 @@ export function Link({
       aria-label={text || iconAlt}
       target={newWindow ? "_blank" : ""}
       className={clsx(
-        "w-fit inline-flex items-center gap-[8px] text-gray-300 font-normal leading-[1.4] hover:text-gray-100 hover:bg-gray-500 rounded-[5px]",
+        "w-fit inline-flex items-center gap-[8px] text-gray-300 font-normal leading-[1.4] hover:text-gray-100 hover:bg-gray-500 rounded-[5px] cursor-pointer",
         text ? "p-[2px]" : "p-[3px]",
         size === "big" ? "text-sm" : "text-xs"
       )}

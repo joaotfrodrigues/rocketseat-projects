@@ -1,11 +1,11 @@
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useState } from "react";
 import { AxiosError } from "axios";
 
 import { api } from "../services/api";
+import { registerSchema } from "../utils/registerSchema";
 
 import { Container } from "../components/Container";
 import { Button } from "../components/Button";
@@ -18,24 +18,15 @@ type FormData = {
   password: string
 }
 
-const schema = z.object({
-  name: z.string().trim()
-    .min(2, { message: "O campo nome é obrigatório" })
-    .max(16, { message: "Nome demasiado longo" }),
-  email: z.string().trim().email({ message: "O campo e-mail é obrigatório" }),
-  password: z.string()
-    .min(6, { message: "A senha deve ter pelo menos 6 caracteres" })
-    .max(16, { message: "Senha demasiado longa" })
-});
 
 export function SignUp() {
-  const { control, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
+  const { control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     defaultValues: {
       name: "",
       email: "",
       password: ""
     },
-    resolver: zodResolver(schema)
+    resolver: zodResolver(registerSchema)
   });
 
   const [serverError, setServerError] = useState<string | null>(null);
@@ -43,6 +34,8 @@ export function SignUp() {
 
   async function onSubmit(data: FormData) {
     try {
+      reset({ name: data.name, email: data.email, password: "" });
+
       await api.post("/users", data);
 
       navigate("/");
