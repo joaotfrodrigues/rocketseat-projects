@@ -11,8 +11,8 @@ type Props = {
 export function Container({ children, className = "" }: Props) {
   return (
     <div className={clsx(
-      "flex flex-col p-6 sm:p-7 border border-gray-500 rounded-[10px]",
-      className
+      className,
+      "flex flex-col p-6 sm:p-7 border border-gray-500 rounded-[10px]"
     )}>
       {children}
     </div>

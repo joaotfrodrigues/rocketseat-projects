@@ -23,8 +23,7 @@ export function Table({ columns, children }: Props) {
               <th
                 key={index}
                 className={clsx(
-                  "text-sm font-normal leading-[1.4] text-gray-400 py-[14px] px-3",
-                  index === 0 ? "text-center" : "text-left",
+                  "text-sm font-normal leading-[1.4] text-gray-400 text-left py-[14px] px-3",
                   column.className
                 )}
               >

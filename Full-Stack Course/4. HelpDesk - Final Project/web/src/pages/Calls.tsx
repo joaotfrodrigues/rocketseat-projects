@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { useAuth } from "../hooks/useAuth";
 import { fetchCalls } from "../services/fetchCalls";
 
 import { Pagination } from "../components/dashboard/Pagination";
@@ -11,8 +10,6 @@ export function Calls() {
   const [page, setPage] = useState<number>(1);
   const [totalOfPage, setTotalOfPage] = useState<number>(0);
   const [calls, setCalls] = useState<Call[]>([]);
-
-  const auth = useAuth();
 
   function handlePagination(action: "next" | "previous") {
     setPage((prevPage) => {

@@ -5,9 +5,11 @@ import { X } from "lucide-react";
 type Props = {
   hour: string
   disabled?: boolean
+  checked?: boolean
+  onToggle?: (hour: string, checked: boolean) => void
 }
 
-export function Hour({ hour, disabled = false }: Props) {
+export function Hour({ hour, disabled = false, checked = false, onToggle }: Props) {
   return (
     <div className="relative w-fit">
       <input
@@ -16,6 +18,8 @@ export function Hour({ hour, disabled = false }: Props) {
         type="checkbox"
         className="peer hidden"
         disabled={disabled}
+        checked={checked}
+        onChange={(e) => onToggle?.(hour, e.target.checked)}
       />
 
       <label
@@ -29,7 +33,8 @@ export function Hour({ hour, disabled = false }: Props) {
           "peer-checked:bg-blue-base peer-checked:border-blue-base peer-checked:text-gray-600"
         )}
       >
-        {hour}:00
+        {hour}
+        {!String(hour).includes("+") && ":00"}
       </label>
 
       <X

@@ -45,7 +45,7 @@ export function User({
   let dimension;
   switch (size) {
     case "xbig":
-      dimension = "w-12 h-12 text-sm font-normal leading-[1.2]";
+      dimension = "w-12 h-12 text-[21px] font-normal leading-[1.2]";
       break;
     case "big": //40px
       dimension = "w-10 h-10 text-sm font-normal leading-[1.2]";

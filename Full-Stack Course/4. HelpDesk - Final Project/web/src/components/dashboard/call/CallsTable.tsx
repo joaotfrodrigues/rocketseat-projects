@@ -47,7 +47,7 @@ export function CallsTable({ calls }: Props) {
       {calls.map((call) => (
         <tr key={call.id} className="border-t border-gray-500">
           {/* Atualizado em */}
-          <td className="px-3 py-[14px] text-xs font-normal text-gray-200 text-center hidden sm:table-cell">
+          <td className="px-3 py-[14px] text-xs font-normal text-gray-200 hidden sm:table-cell">
             {call.updatedAt}
           </td>
 

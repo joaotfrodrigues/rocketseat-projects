@@ -13,6 +13,6 @@ export const tabs = {
   ],
   "client": [
     { title: "Chamados", route: "/", icon: ClipboardList },
-    { title: "Criar chamado", route: "/create-call", icon: Plus }
+    { title: "Criar chamado", route: "/call/create", icon: Plus }
   ]
 }

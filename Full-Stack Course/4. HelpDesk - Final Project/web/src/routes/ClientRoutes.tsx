@@ -15,7 +15,7 @@ export function ClientRoutes() {
       <Route path="/" element={<DashboardLayout />}>
         <Route path="/" element={<Calls />} />
         <Route path="/call/:id" element={<Call />} />
-        <Route path="/create-call" element={<CreateCall />} />
+        <Route path="/call/create" element={<CreateCall />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
