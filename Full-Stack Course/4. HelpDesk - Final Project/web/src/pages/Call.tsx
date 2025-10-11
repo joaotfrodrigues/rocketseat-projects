@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
-import { Controller, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Clock2, CircleCheckBig } from "lucide-react";
 
@@ -112,7 +112,7 @@ export function Call() {
             onClick={() => navigate("/")}
           />
 
-          <h1 className="text-lg font-bold leading-[1.4] text-blue-dark">Chamado detalhado</h1>
+          <h1 className="text-xl font-bold leading-[1.4] text-blue-dark">Chamado detalhado</h1>
         </div>
 
         {auth.session!.user.role !== "client" &&

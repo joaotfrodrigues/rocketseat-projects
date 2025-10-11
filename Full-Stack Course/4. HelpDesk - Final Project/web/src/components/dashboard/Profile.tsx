@@ -14,7 +14,6 @@ import { PasswordUpdate } from "./profile/PasswordUpdate";
 
 
 type Props = {
-  profileOpen: boolean
   closeModal: () => void
 }
 
@@ -23,7 +22,7 @@ type FormData = {
   email: string
 }
 
-export function Profile({ profileOpen, closeModal }: Props) {
+export function Profile({ closeModal }: Props) {
   const [passwordModalOpen, setPasswordModalOpen] = useState<boolean>(false);
 
   const auth = useAuth();
@@ -110,7 +109,7 @@ export function Profile({ profileOpen, closeModal }: Props) {
 
   return (
     <>
-      {profileOpen &&
+      {profile?.profileOpen &&
         <UserUpdate
           onSubmit={handleSubmit(onSubmit)}
           isSubmitting={isSubmitting}

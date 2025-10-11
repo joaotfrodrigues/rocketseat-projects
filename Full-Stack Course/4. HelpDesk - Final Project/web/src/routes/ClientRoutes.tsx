@@ -4,6 +4,8 @@ import { DashboardLayout } from "../layouts/Dashboard";
 
 import { Calls } from "../pages/Calls";
 import { Call } from "../pages/Call";
+import { CreateCall } from "../pages/CreateCall";
+
 import { NotFound } from "../pages/NotFound";
 
 
@@ -13,6 +15,7 @@ export function ClientRoutes() {
       <Route path="/" element={<DashboardLayout />}>
         <Route path="/" element={<Calls />} />
         <Route path="/call/:id" element={<Call />} />
+        <Route path="/create-call" element={<CreateCall />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />

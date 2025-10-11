@@ -30,7 +30,6 @@ export function Hour({ hour, disabled = false }: Props) {
         )}
       >
         {hour}:00
-
       </label>
 
       <X

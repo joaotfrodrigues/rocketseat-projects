@@ -34,7 +34,7 @@ export function Calls() {
 
   return (
     <>
-      <h1 className="text-lg font-bold leading-[1.4] text-blue-dark">Chamados</h1>
+      <h1 className="text-xl font-bold leading-[1.4] text-blue-dark">Chamados</h1>
 
       <CallsTable
         calls={calls}

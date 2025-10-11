@@ -9,7 +9,7 @@ import { Profile } from "../components/dashboard/Profile";
 
 
 export function DashboardLayout() {
-  const { profileOpen, setProfileOpen } = useProfile();
+  const profile = useProfile();
 
   return (
     <main className="min-h-screen bg-gray-100 sm:pt-3 flex flex-col sm:flex-row">
@@ -17,8 +17,7 @@ export function DashboardLayout() {
       <NavbarMobile />
 
       <Profile
-        profileOpen={profileOpen}
-        closeModal={() => setProfileOpen(false)}
+        closeModal={() => profile?.setProfileOpen(false)}
       />
 
 

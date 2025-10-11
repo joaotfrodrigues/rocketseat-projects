@@ -1,4 +1,4 @@
-import { ClipboardList, Users, BriefcaseBusiness, Wrench } from "lucide-react";
+import { ClipboardList, Users, BriefcaseBusiness, Wrench, Plus } from "lucide-react";
 
 
 export const tabs = {
@@ -13,5 +13,6 @@ export const tabs = {
   ],
   "client": [
     { title: "Chamados", route: "/", icon: ClipboardList },
+    { title: "Criar chamado", route: "/create-call", icon: Plus }
   ]
 }

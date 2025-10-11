@@ -15,7 +15,7 @@ export function TechnicianCalls() {
 
   return (
     <>
-      <h1 className="text-lg font-bold leading-[1.4] text-blue-dark">Meus Chamados</h1>
+      <h1 className="text-xl font-bold leading-[1.4] text-blue-dark">Meus Chamados</h1>
 
       <section className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
@@ -25,11 +25,11 @@ export function TechnicianCalls() {
             {calls
               .filter(call => call.status === "progress")
               .map((call, index) => (
-              <CallCard
-                call={call}
-                key={index}
-              />
-            ))}
+                <CallCard
+                  call={call}
+                  key={index}
+                />
+              ))}
           </div>
         </div>
 
@@ -40,11 +40,11 @@ export function TechnicianCalls() {
             {calls
               .filter(call => call.status === "opened")
               .map((call, index) => (
-              <CallCard
-                call={call}
-                key={index}
-              />
-            ))}
+                <CallCard
+                  call={call}
+                  key={index}
+                />
+              ))}
           </div>
         </div>
 
@@ -55,11 +55,11 @@ export function TechnicianCalls() {
             {calls
               .filter(call => call.status === "closed")
               .map((call, index) => (
-              <CallCard
-                call={call}
-                key={index}
-              />
-            ))}
+                <CallCard
+                  call={call}
+                  key={index}
+                />
+              ))}
           </div>
         </div>
 

@@ -51,7 +51,7 @@ export function SignIn() {
     <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
       <Container className="gap-8 sm:gap-10">
         <div>
-          <h1 className="text-lg font-bold leading-[1.4] text-gray-200">
+          <h1 className="text-xl font-bold leading-[1.4] text-gray-200">
             Acesse o portal
           </h1>
           <p className="text-xs font-normal leading-[1.4] text-gray-300">
