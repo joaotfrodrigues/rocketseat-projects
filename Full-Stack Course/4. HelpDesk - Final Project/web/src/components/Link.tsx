@@ -4,6 +4,7 @@ import { clsx } from "clsx";
 interface Props extends Button {
   href?: string
   newWindow?: boolean
+  responsive?: boolean
 }
 
 export function Link({
@@ -13,7 +14,8 @@ export function Link({
   size = "big",
   href,
   onClick,
-  newWindow = false }: Props) {
+  newWindow = false,
+  responsive = false }: Props) {
 
   const iconSize = size === "big" ? 18 : 14;
 
@@ -31,7 +33,13 @@ export function Link({
       onClick={onClick}
     >
       {Icon && <Icon size={iconSize} />}
-      {text}
+
+      {responsive ? (
+        <span className={clsx(responsive ? "hidden sm:inline" : "")}>
+          {text}
+        </span>
+      ) : (text)
+      }
     </a>
   );
 }

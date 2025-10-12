@@ -104,7 +104,11 @@ export class ServicesController {
     }
 
     const titleInUse = await prisma.service.findFirst({
-      where: { title, deletedAt: null }
+      where: {
+        title,
+        deletedAt: null,
+        NOT: { id }
+      }
     });
 
     if (titleInUse) {

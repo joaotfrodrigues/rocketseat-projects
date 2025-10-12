@@ -3,6 +3,7 @@ import { clsx } from "clsx";
 import { PenLine, Eye } from "lucide-react";
 
 import { useAuth } from "../../../hooks/useAuth";
+import { formatCurrency } from "../../../utils/formatCurrency";
 
 import { Table } from "../../Table";
 import { Button } from "../../Button";
@@ -83,7 +84,7 @@ export function CallsTable({ calls }: Props) {
 
           {/* Service price  */}
           <td className="px-3 py-[14px] text-sm font-normal text-gray-200 hidden md:table-cell">
-            {call.service.price ? `${call.service.price}€` : "—"}
+            {call.service.price ? `${formatCurrency(call.service.price)}€` : "—"}
           </td>
 
           {/* Client (only for admin) */}

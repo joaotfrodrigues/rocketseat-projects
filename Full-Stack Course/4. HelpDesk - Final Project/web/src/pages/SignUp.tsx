@@ -83,6 +83,7 @@ export function SignUp() {
               <Input
                 label="E-mail"
                 id="email"
+                htmlType="email"
                 placeholder="exemplo@mail.com"
                 error={errors.email?.message != null}
                 helper={errors.email?.message ?? ""}

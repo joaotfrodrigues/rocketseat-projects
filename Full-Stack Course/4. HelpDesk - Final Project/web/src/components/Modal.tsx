@@ -1,5 +1,6 @@
 import { Link } from "./Link";
 import { X, ArrowLeft } from "lucide-react";
+import { clsx } from "clsx";
 
 import type { ReactNode } from "react";
 
@@ -13,6 +14,8 @@ type Props = {
   isSubmitting: boolean
   backButton?: () => void
   children: ReactNode
+  cancelBtn?: boolean
+  submitBtnText?: string
 }
 
 export function Modal({
@@ -21,7 +24,9 @@ export function Modal({
   onSubmit,
   isSubmitting,
   children,
-  backButton }: Props) {
+  backButton,
+  cancelBtn = false,
+  submitBtnText }: Props) {
   return (
     <div className="z-50 w-full min-h-screen absolute top-0 left-0 bg-[#00000050] flex items-center justify-center">
       <form
@@ -48,9 +53,21 @@ export function Modal({
 
         {children}
 
-        <div className="py-6 px-7">
+        <div className={clsx(
+          "py-6 px-7",
+          cancelBtn ? "flex gap-2" : ""
+        )}>
+          {cancelBtn &&
+            <Button
+              text="Cancelar"
+              className="w-full"
+              disabled={isSubmitting}
+              type="secondary"
+              onClick={closeModal}
+            />
+          }
           <Button
-            text="Salvar"
+            text={submitBtnText ?? "Salvar"}
             className="w-full"
             htmlType="submit"
             disabled={isSubmitting}

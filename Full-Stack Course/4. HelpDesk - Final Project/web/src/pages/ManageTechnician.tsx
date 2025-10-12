@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema } from "../utils/registerSchema";
 import { registerSchemaUpdate } from "../utils/registerSchema";
 
-import { api } from "../services/api";
+import { api } from "../services/api";
 
 import { Container } from "../components/Container";
 import { Input } from "../components/Input";
@@ -16,7 +16,7 @@ import { Header } from "../components/dashboard/technician/Header";
 
 
 type Props = {
-  operation: "create" | "update" 
+  operation: "create" | "update"
 }
 
 type FormData = {
@@ -48,7 +48,7 @@ export function ManageTechnician({ operation }: Props) {
   async function onSubmit(data: FormData) {
     try {
       if (operation === "create") {
-        await api.post("/technicians", data={
+        await api.post("/technicians", data = {
           name: data.name,
           email: data.email,
           password: data.password,
@@ -56,7 +56,7 @@ export function ManageTechnician({ operation }: Props) {
         });
       } else {
         if (params.id) {
-          await api.patch(`/technicians/${params.id}`, data={
+          await api.patch(`/technicians/${params.id}`, data = {
             name: data.name,
             email: data.email,
             schedules: JSON.stringify(schedules)
@@ -147,6 +147,7 @@ export function ManageTechnician({ operation }: Props) {
                   label="E-mail"
                   id="email"
                   placeholder="exemplo@mail.com"
+                  htmlType="email"
                   error={errors.email?.message != null}
                   helper={errors.email?.message ?? ""}
                   {...field}

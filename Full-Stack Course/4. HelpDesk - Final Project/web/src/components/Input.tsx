@@ -12,7 +12,7 @@ type Props = {
   autoComplete?: string
   placeholder?: string
   error: boolean
-  htmlType?: "text" | "password"
+  htmlType?: "text" | "password" | "email"
   onChange?: () => any
   disabled?: boolean
   value?: string

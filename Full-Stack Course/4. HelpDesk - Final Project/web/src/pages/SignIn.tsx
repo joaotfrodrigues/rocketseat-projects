@@ -68,6 +68,7 @@ export function SignIn() {
                 label="E-mail"
                 id="email"
                 placeholder="exemplo@mail.com"
+                htmlType="email"
                 error={errors.email?.message != null}
                 helper={errors.email?.message ?? ""}
                 {...field}
