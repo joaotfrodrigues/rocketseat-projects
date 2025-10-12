@@ -31,5 +31,14 @@ services:
     volumes:
       - ./api/uploads:/usr/src/app/uploads
 
+  web:
+    build: ./web
+    container_name: web
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+
 volumes:
   postgresql_data:
