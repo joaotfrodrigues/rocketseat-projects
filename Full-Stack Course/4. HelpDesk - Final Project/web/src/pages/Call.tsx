@@ -122,7 +122,7 @@ export function Call() {
             text="Iniciar atendimento"
             type="primary"
             className="flex-1 md:flex-initial self-end w-full sm:w-auto"
-            onClick={() => updateStatus({ id: params.id, newStatus: "progress" })}
+            onClick={() => updateStatus(params.id, "progress")}
           />
         }
 
@@ -133,7 +133,7 @@ export function Call() {
             text="Encerrar"
             type="secondary"
             className="flex-1 md:flex-initial self-end w-full sm:w-auto"
-            onClick={() => updateStatus({ id: params.id, newStatus: "closed" })}
+            onClick={() => updateStatus(params.id, "closed")}
           />
         }
       </div>
